@@ -9,9 +9,12 @@ class db_connect
 
     function __construct()
     {
+        $this->connection = null;
         $this->connection = new mysqli($this->server, $this->usernme, $this->password, $this->database);
         if ($this->connection->connect_error) {
             die("Connection failed" . $this->connection->connect_error);
         }
+
+        return $this->connection;
     }
 }
