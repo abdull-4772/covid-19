@@ -8,9 +8,6 @@
         <h1 class="heading mb-3">About COVID-19</h1>
         <p class="mb-5">COVID-19 is a highly contagious respiratory illness caused by the novel coronavirus SARS-CoV-2. It was first identified in Wuhan, China in late 2019.</p>
         <p class="mb-4"><a href="#" class="btn btn-primary">Learn More</a></p>
-
-
-
       </div>
       <div class="col-lg-6">
         <figure class="illustration">

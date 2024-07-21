@@ -1,4 +1,4 @@
-<?php include("./components/navbar.php"); ?>
+<?php include("./public/partials/header.php"); ?>
 
 <!------------------------------ MAIN ------------------------>
 <div class="hero-v1">
@@ -397,4 +397,4 @@
 </div>
 <!------------------------------ MAIN End ------------------------>
 
-<?php include("./components/footer.php"); ?>
+<?php include("./public/partials/footer.php"); ?>
