@@ -1,6 +1,7 @@
 <?php include("./public/partials/header.php"); ?>
 
 <!------------------------------ MAIN ------------------------>
+
 <div class="hero-v1">
   <div class="container">
     <div class="row align-items-center">
