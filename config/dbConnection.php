@@ -1,5 +1,7 @@
 <?php
-class dbConnection {
+class dbConnection
+{
+
     private static $instance;
     private $host;
     private $username;
@@ -7,8 +9,9 @@ class dbConnection {
     private $database;
     private $connection;
 
-    public function __construct() {
-        require_once 'config.php';
+    public function __construct()
+    {
+        require_once 'dbDefine.php';
 
         $this->host = DB_HOST;
         $this->username = DB_USERNAME;
@@ -25,43 +28,23 @@ class dbConnection {
         }
     }
 
-    public static function getInstance() {
+    public static function getInstance()
+    {
         if (!self::$instance) {
             self::$instance = new dbConnection();
         }
         return self::$instance;
     }
 
-    public function getConnection() {
+    public function getConnection()
+    {
         return $this->connection;
     }
 
-    public function closeConnection() {
+    public function closeConnection()
+    {
         if ($this->connection) {
             $this->connection->close();
         }
-    }
-
-    // CRUD operations
-    public function query($sql) {
-        $result = $this->connection->query($sql);
-
-        if (!$result) {
-            die("Query failed: " . $this->connection->error);
-        }
-
-        return $result;
-    }
-
-    public function insert($table, $data) {
-    }
-
-    public function update($table, $data, $where) {
-    }
-
-    public function delete($table, $where) {
-    }
-
-    public function select($table, $columns = '*', $where = null, $orderBy = null, $limit = null) {
     }
 }
