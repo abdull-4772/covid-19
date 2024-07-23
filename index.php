@@ -1,6 +1,7 @@
-<?php include("./components/navbar.php"); ?>
+<?php include("./public/partials/header.php"); ?>
 
 <!------------------------------ MAIN ------------------------>
+
 <div class="hero-v1">
   <div class="container">
     <div class="row align-items-center">
@@ -12,7 +13,7 @@
       </div>
       <div class="col-lg-6">
         <figure class="illustration">
-          <img src="images/illustration.png" alt="Image" class="img-fluid">
+          <img src="./public/images/illustration.png" alt="Image" class="img-fluid">
         </figure>
       </div>
       <div class="col-lg-6"></div>
@@ -69,7 +70,7 @@
     <div class="row">
       <div class="col-lg-6 mb-4 mb-lg-0">
         <figure class="img-play-vid">
-          <img src="images/hero_1.jpg" alt="Image" class="img-fluid">
+          <img src="./public/images/hero_1.jpg" alt="Image" class="img-fluid">
           <div class="absolute-block d-flex">
             <span class="text">Watch the Video</span>
             <a href="https://www.youtube.com/watch?v=9pVy8sRC440" data-fancybox class="btn-play">
@@ -247,7 +248,7 @@
         </div>
       </div>
       <div class="col-lg-6">
-        <img src="images/protect.png" alt="Image" class="img-fluid">
+        <img src="./public/images/protect.png" alt="Image" class="img-fluid">
       </div>
     </div>
   </div>
@@ -266,7 +267,7 @@
       <div class="col-lg-6 mb-4">
         <div class="symptom d-flex">
           <div class="img">
-            <img src="images/symptom_high-fever.png" alt="Image" class="img-fluid">
+            <img src="./public/images/symptom_high-fever.png" alt="Image" class="img-fluid">
           </div>
           <div class="text">
             <h3>High Fever</h3>
@@ -277,7 +278,7 @@
       <div class="col-lg-6 mb-4">
         <div class="symptom d-flex">
           <div class="img">
-            <img src="images/symptom_cough.png" alt="Image" class="img-fluid">
+            <img src="./public/images/symptom_cough.png" alt="Image" class="img-fluid">
           </div>
           <div class="text">
             <h3>Cough</h3>
@@ -288,7 +289,7 @@
       <div class="col-lg-6 mb-4">
         <div class="symptom d-flex">
           <div class="img">
-            <img src="images/symptom_sore-troath.png" alt="Image" class="img-fluid">
+            <img src="./public/images/symptom_sore-troath.png" alt="Image" class="img-fluid">
           </div>
           <div class="text">
             <h3>Sore Troath</h3>
@@ -300,7 +301,7 @@
       <div class="col-lg-6 mb-4">
         <div class="symptom d-flex">
           <div class="img">
-            <img src="images/symptom_headache.png" alt="Image" class="img-fluid">
+            <img src="./public/images/symptom_headache.png" alt="Image" class="img-fluid">
           </div>
           <div class="text">
             <h3>Headache</h3>
@@ -339,7 +340,7 @@
         <div class="post-entry">
           <a href="#" class="thumb">
             <span class="date">30 Jul, 2020</span>
-            <img src="images/hero_1.jpg" alt="Image" class="img-fluid">
+            <img src="./public/images/hero_1.jpg" alt="Image" class="img-fluid">
           </a>
           <div class="post-meta text-center">
             <a href="">
@@ -358,7 +359,7 @@
         <div class="post-entry">
           <a href="#" class="thumb">
             <span class="date">30 Jul, 2020</span>
-            <img src="images/hero_2.jpg" alt="Image" class="img-fluid">
+            <img src=".public/images/hero_2.jpg" alt="Image" class="img-fluid">
           </a>
           <div class="post-meta text-center">
             <a href="">
@@ -377,7 +378,7 @@
         <div class="post-entry">
           <a href="#" class="thumb">
             <span class="date">30 Jul, 2020</span>
-            <img src="images/hero_1.jpg" alt="Image" class="img-fluid">
+            <img src=".public/images/hero_1.jpg" alt="Image" class="img-fluid">
           </a>
           <div class="post-meta text-center">
             <a href="">
@@ -397,4 +398,4 @@
 </div>
 <!------------------------------ MAIN End ------------------------>
 
-<?php include("./components/footer.php"); ?>
+<?php include("./public/partials/footer.php"); ?>

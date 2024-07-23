@@ -21,7 +21,7 @@
     <div class="d-flex align-items-center">
       <div class="d-flex pagination-item h-100 active">
         <span class="icon-wrap">
-          <img src="images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid">
+          <img src=".public/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid">
         </span>
         <div>
           <span class="subheading">Try Our Services</span>
@@ -30,7 +30,7 @@
       </div>
       <div class="d-flex pagination-item h-100">
         <span class="icon-wrap">
-          <img src="images/svg/svg/002-elderly-1.svg" alt="Image" class="img-fluid">
+          <img src=".public/images/svg/svg/002-elderly-1.svg" alt="Image" class="img-fluid">
         </span>
         <div>
           <span class="subheading">Try Our Services</span>
@@ -39,7 +39,7 @@
       </div>
       <div class="d-flex pagination-item h-100">
         <span class="icon-wrap">
-          <img src="images/svg/svg/003-rocking-chair.svg" alt="Image" class="img-fluid">
+          <img src=".public/images/svg/svg/003-rocking-chair.svg" alt="Image" class="img-fluid">
         </span>
         <div>
           <span class="subheading">Try Our Services</span>
@@ -56,7 +56,7 @@
     <div class="row">
       <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
         <div class="service">
-          <a href="#" class="d-block"><img src="images/img_4_sq.jpg" alt="Image" class="img-fluid"></a>
+          <a href="#" class="d-block"><img src=".public/images/img_4_sq.jpg" alt="Image" class="img-fluid"></a>
           <div class="service-inner">
             <h3>Special Care</h3>
             <p>Lorem ipsum dolor sit amet elit.</p>
@@ -65,7 +65,7 @@
       </div>
       <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
         <div class="service">
-          <a href="#" class="d-block"><img src="images/img_1_sq.jpg" alt="Image" class="img-fluid"></a>
+          <a href="#" class="d-block"><img src=".public/images/img_1_sq.jpg" alt="Image" class="img-fluid"></a>
           <div class="service-inner">
             <h3>Special Care</h3>
             <p>Lorem ipsum dolor sit amet elit.</p>
@@ -74,7 +74,7 @@
       </div>
       <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
         <div class="service">
-          <a href="#" class="d-block"><img src="images/img_2_sq.jpg" alt="Image" class="img-fluid"></a>
+          <a href="#" class="d-block"><img src=".public/images/img_2_sq.jpg" alt="Image" class="img-fluid"></a>
           <div class="service-inner">
             <h3>Special Care</h3>
             <p>Lorem ipsum dolor sit amet elit.</p>
@@ -83,7 +83,7 @@
       </div>
       <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
         <div class="service">
-          <a href="#" class="d-block"><img src="images/img_3_sq.jpg" alt="Image" class="img-fluid"></a>
+          <a href="#" class="d-block"><img src=".public/images/img_3_sq.jpg" alt="Image" class="img-fluid"></a>
           <div class="service-inner">
             <h3>Special Care</h3>
             <p>Lorem ipsum dolor sit amet elit.</p>
@@ -135,7 +135,7 @@
 
           <div class="row">
             <div class="col-lg-6">
-              <img src="images/img_3.jpg" alt="Image" class="img-fluid">
+              <img src=".public/images/img_3.jpg" alt="Image" class="img-fluid">
             </div>
             <div class="col-lg-6">
               <ul class="list-unstyled ul-check primary">
@@ -169,7 +169,7 @@
           <div class="col-lg-4">
             <div class="feature">
               <span class="img-wrap">
-                <img src="images/svg/svg/006-elderly-3.svg" alt="Image" class="img-fluid">
+                <img src=".public/images/svg/svg/006-elderly-3.svg" alt="Image" class="img-fluid">
               </span>
               <h3>Expert Nursing Staff</h3>
             </div>
@@ -177,7 +177,7 @@
           <div class="col-lg-4">
             <div class="feature">
               <span class="img-wrap">
-                <img src="images/svg/svg/005-elderly-2.svg" alt="Image" class="img-fluid">
+                <img src=".public/images/svg/svg/005-elderly-2.svg" alt="Image" class="img-fluid">
               </span>
               <h3>Expert Nursing Staff</h3>
             </div>
@@ -185,7 +185,7 @@
           <div class="col-lg-4">
             <div class="feature">
               <span class="img-wrap">
-                <img src="images/svg/svg/004-nurse.svg" alt="Image" class="img-fluid">
+                <img src=".public/images/svg/svg/004-nurse.svg" alt="Image" class="img-fluid">
               </span>
               <h3>Expert Nursing Staff</h3>
             </div>
@@ -202,7 +202,7 @@
     <div class="row">
       <div class="col-lg-4">
         <div class="testimonial text-center">
-          <img src="images/person_1.jpg" alt="Image" class="img-fluid">
+          <img src=".public/images/person_1.jpg" alt="Image" class="img-fluid">
           <blockquote>
             <p class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo repellendus nihil qui iure animi maxime consequuntur aliquid sed tempore, amet!</p>
             <cite class="author">Elizabeth Anderson, Senior</cite>
@@ -211,7 +211,7 @@
       </div>
       <div class="col-lg-4">
         <div class="testimonial text-center">
-          <img src="images/person_1.jpg" alt="Image" class="img-fluid">
+          <img src=".public/images/person_1.jpg" alt="Image" class="img-fluid">
           <blockquote>
             <p class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo repellendus nihil qui iure animi maxime consequuntur aliquid sed tempore, amet!</p>
             <cite class="author">Elizabeth Anderson, Senior</cite>
@@ -220,7 +220,7 @@
       </div>
       <div class="col-lg-4">
         <div class="testimonial text-center">
-          <img src="images/person_1.jpg" alt="Image" class="img-fluid">
+          <img src=".public/images/person_1.jpg" alt="Image" class="img-fluid">
           <blockquote>
             <p class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo repellendus nihil qui iure animi maxime consequuntur aliquid sed tempore, amet!</p>
             <cite class="author">Elizabeth Anderson, Senior</cite>
@@ -270,7 +270,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-lg-6 mb-5 mb-md-0">
-        <img src="images/about.png" alt="Image" class="img-fluid">
+        <img src=".public/images/about.png" alt="Image" class="img-fluid">
       </div>
       <div class="col-md-6 col-lg-5 ml-auto">
         <div class="section-heading">
@@ -302,7 +302,7 @@
       <div class="col-md-4">
         <div class="blog-entry">
           <a href="#" class="d-block mb-4">
-            <img src="images/img_1.jpg" alt="Image" class="img-fluid">
+            <img src=".public/images/img_1.jpg" alt="Image" class="img-fluid">
           </a>
           <div class="post-meta d-flex">
             <span class="d-flex">

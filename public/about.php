@@ -8,13 +8,10 @@
         <h1 class="heading mb-3">About COVID-19</h1>
         <p class="mb-5">COVID-19 is a highly contagious respiratory illness caused by the novel coronavirus SARS-CoV-2. It was first identified in Wuhan, China in late 2019.</p>
         <p class="mb-4"><a href="#" class="btn btn-primary">Learn More</a></p>
-
-
-
       </div>
       <div class="col-lg-6">
         <figure class="illustration">
-          <img src="images/illustration.png" alt="Image" class="img-fluid">
+          <img src=".public/images/illustration.png" alt="Image" class="img-fluid">
         </figure>
       </div>
 
@@ -33,7 +30,7 @@
     <div class="row">
       <div class="col-lg-6 mb-4 mb-lg-0">
         <figure class="img-play-vid">
-          <img src="images/hero_1.jpg" alt="Image" class="img-fluid">
+          <img src=".public/images/hero_1.jpg" alt="Image" class="img-fluid">
           <div class="absolute-block d-flex">
             <span class="text">Watch the Video</span>
             <a href="https://www.youtube.com/watch?v=9pVy8sRC440" data-fancybox class="btn-play">
@@ -68,7 +65,7 @@
     <div class="row">
       <div class="col-lg-4">
         <div class="team">
-          <img src="images/person_1.jpg" alt="Image" class="img-fluid">
+          <img src=".public/images/person_1.jpg" alt="Image" class="img-fluid">
           <h3>Dr. Sarah Johnson</h3>
           <p>Dr. Sarah Johnson is an infectious disease specialist with years of experience in managing viral outbreaks.</p>
           <p>
@@ -82,7 +79,7 @@
       </div>
       <div class="col-lg-4">
         <div class="team">
-          <img src="images/person_2.jpg" alt="Image" class="img-fluid">
+          <img src=".public/images/person_2.jpg" alt="Image" class="img-fluid">
           <h3>Dr. Mark Davis</h3>
           <p>Dr. Mark Davis is a public health expert specializing in epidemiology and disease prevention strategies.</p>
           <p>
@@ -96,7 +93,7 @@
       </div>
       <div class="col-lg-4">
         <div class="team">
-          <img src="images/person_3.jpg" alt="Image" class="img-fluid">
+          <img src=".public/images/person_3.jpg" alt="Image" class="img-fluid">
           <h3>Dr. Emily Clark</h3>
           <p>Dr. Emily Clark is a virologist specializing in coronavirus research and vaccine development.</p>
           <p>

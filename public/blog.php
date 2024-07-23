@@ -33,7 +33,7 @@
         <div class="post-entry">
           <a href="#" class="thumb">
             <span class="date">30 Jul, 2020</span>
-            <img src="images/hero_1.jpg" alt="Image" class="img-fluid">
+            <img src=".public/images/hero_1.jpg" alt="Image" class="img-fluid">
           </a>
           <div class="post-meta text-center">
             <a href="">
@@ -52,7 +52,7 @@
         <div class="post-entry">
           <a href="#" class="thumb">
             <span class="date">30 Jul, 2020</span>
-            <img src="images/hero_2.jpg" alt="Image" class="img-fluid">
+            <img src=".public/images/hero_2.jpg" alt="Image" class="img-fluid">
           </a>
           <div class="post-meta text-center">
             <a href="">
@@ -71,7 +71,7 @@
         <div class="post-entry">
           <a href="#" class="thumb">
             <span class="date">30 Jul, 2020</span>
-            <img src="images/hero_1.jpg" alt="Image" class="img-fluid">
+            <img src=".public/images/hero_1.jpg" alt="Image" class="img-fluid">
           </a>
           <div class="post-meta text-center">
             <a href="">
@@ -91,7 +91,7 @@
         <div class="post-entry">
           <a href="#" class="thumb">
             <span class="date">30 Jul, 2020</span>
-            <img src="images/hero_1.jpg" alt="Image" class="img-fluid">
+            <img src=".public/images/hero_1.jpg" alt="Image" class="img-fluid">
           </a>
           <div class="post-meta text-center">
             <a href="">
@@ -110,7 +110,7 @@
         <div class="post-entry">
           <a href="#" class="thumb">
             <span class="date">30 Jul, 2020</span>
-            <img src="images/hero_2.jpg" alt="Image" class="img-fluid">
+            <img src=".public/images/hero_2.jpg" alt="Image" class="img-fluid">
           </a>
           <div class="post-meta text-center">
             <a href="">
@@ -129,7 +129,7 @@
         <div class="post-entry">
           <a href="#" class="thumb">
             <span class="date">30 Jul, 2020</span>
-            <img src="images/hero_1.jpg" alt="Image" class="img-fluid">
+            <img src=".public/images/hero_1.jpg" alt="Image" class="img-fluid">
           </a>
           <div class="post-meta text-center">
             <a href="">
