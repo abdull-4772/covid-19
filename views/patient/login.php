@@ -12,7 +12,7 @@
             font-family: Arial, sans-serif;
             background: #141e30;
             background: -webkit-linear-gradient(to right, #243b55, #141e30);
-            background: linear-gradient(to right, #243b55, #141e30);
+            background: linear-gradient(to right, #a884e9, #3d2862);
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -24,7 +24,7 @@
             width: 100%;
             max-width: 400px;
             padding: 40px;
-            background: rgba(0, 0, 0, 0.5);
+            background: #6f42c1;
             border-radius: 10px;
             box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
             text-align: center;
@@ -74,7 +74,7 @@
         .user-box input:valid~label {
             top: -20px;
             left: 0;
-            color: #03e9f4;
+            color: #f686ff;
             font-size: 12px;
         }
 
@@ -82,10 +82,10 @@
             position: relative;
             display: inline-block;
             padding: 10px 20px;
-            color: #03e9f4;
+            color: #f686ff;
             background-color: transparent;
             border: none;
-            font-size: 16px;
+            font-size: 18px;
             text-decoration: none;
             text-transform: uppercase;
             overflow: hidden;
@@ -96,13 +96,14 @@
         }
 
         .button:hover {
-            background: #03e9f4;
+            cursor: pointer;
+            background: #f686ff;
             color: #fff;
             border-radius: 5px;
-            box-shadow: 0 0 5px #03e9f4,
-                0 0 25px #03e9f4,
-                0 0 50px #03e9f4,
-                0 0 100px #03e9f4;
+            box-shadow: 0 0 5px #f686ff,
+                0 0 25px #f686ff,
+                0 0 50px #f686ff,
+                0 0 100px #f686ff;
         }
 
         .button span {
@@ -115,7 +116,7 @@
             left: -100%;
             width: 100%;
             height: 2px;
-            background: linear-gradient(90deg, transparent, #03e9f4);
+            background: linear-gradient(90deg, transparent, #f686ff);
             animation: btn-anim1 1s linear infinite;
         }
 
@@ -124,7 +125,7 @@
             right: 0;
             width: 2px;
             height: 100%;
-            background: linear-gradient(180deg, transparent, #03e9f4);
+            background: linear-gradient(180deg, transparent, #f686ff);
             animation: btn-anim2 1s linear infinite;
             animation-delay: 0.25s;
         }
@@ -134,7 +135,7 @@
             right: -100%;
             width: 100%;
             height: 2px;
-            background: linear-gradient(270deg, transparent, #03e9f4);
+            background: linear-gradient(270deg, transparent, #f686ff);
             animation: btn-anim3 1s linear infinite;
             animation-delay: 0.5s;
         }
@@ -144,7 +145,7 @@
             left: 0;
             width: 2px;
             height: 100%;
-            background: linear-gradient(360deg, transparent, #03e9f4);
+            background: linear-gradient(360deg, transparent, #f686ff);
             animation: btn-anim4 1s linear infinite;
             animation-delay: 0.75s;
         }
