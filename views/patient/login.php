@@ -200,7 +200,7 @@
     <div class="container">
         <div class="login-box">
             <h2>Login</h2>
-            <form action="../../controllers/patient.php" method="POST">
+            <form action="../../controllers/registration.php" method="POST">
                 <div class="user-box">
                     <input type="email" name="email" required>
                     <label>Email</label>

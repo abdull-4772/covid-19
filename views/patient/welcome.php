@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if(!isset($_SESSION['user_id'])){
-    header('Location: /login.php');
+    header('Location: http://localhost/covid-19/views/patient/login.php');
     exit;
 }
 ?>
