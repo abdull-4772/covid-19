@@ -33,8 +33,6 @@
             color: #fff;
         }
 
-        .user-box {}
-
         .user-box input,
         .user-box label {
             width: 100%;
