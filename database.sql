@@ -22,50 +22,54 @@ CREATE TABLE Admin (
     CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create Hospital table
-CREATE TABLE Hospital (
-    HospitalID INT AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(100) NOT NULL,
-    Address VARCHAR(255),
-    Location VARCHAR(100),
-    PhoneNumber VARCHAR(15),
-    Email VARCHAR(100) UNIQUE,
-    RegisteredAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    ApprovedByAdmin BOOLEAN DEFAULT FALSE
+-- Create Hospital Table
+CREATE TABLE IF NOT EXISTS hospital (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    location VARCHAR(255),
+    contact_number VARCHAR(15),
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create Patient table
-CREATE TABLE Patient (
-    PatientID INT AUTO_INCREMENT PRIMARY KEY,
-    FullName VARCHAR(100),
-    Address VARCHAR(255),
-    PhoneNumber VARCHAR(15),
-    Email VARCHAR(100) UNIQUE,
-    DateOfBirth DATE,
-    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+-- Create Appointment Table
+CREATE TABLE IF NOT EXISTS appointment (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    hospital_id INT,
+    appointment_date DATETIME NOT NULL,
+    test_type ENUM('Covid Test', 'Vaccination') NOT NULL,
+    status ENUM('Pending', 'Approved', 'Rejected') DEFAULT 'Pending',
+    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (hospital_id) REFERENCES hospital(id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create Appointments table
-CREATE TABLE Appointments (
-    AppointmentID INT AUTO_INCREMENT PRIMARY KEY,
-    PatientID INT,
-    HospitalID INT,
-    AppointmentDate DATE,
-    AppointmentType ENUM('Test', 'Vaccination'),
-    Status ENUM('Pending', 'Approved', 'Rejected', 'Completed'),
-    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (PatientID) REFERENCES Patient(PatientID),
-    FOREIGN KEY (HospitalID) REFERENCES Hospital(HospitalID)
+-- Create Test Results Table
+CREATE TABLE IF NOT EXISTS test_results (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    hospital_id INT,
+    result ENUM('Positive', 'Negative', 'Pending') NOT NULL,
+    result_date DATETIME,
+    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (hospital_id) REFERENCES hospital(id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create Vaccinations table
-CREATE TABLE Vaccinations (
-    VaccinationID INT AUTO_INCREMENT PRIMARY KEY,
-    VaccineName VARCHAR(100),
-    Manufacturer VARCHAR(100),
-    AvailableQuantity INT DEFAULT 0,
-    HospitalID INT,
-    FOREIGN KEY (HospitalID) REFERENCES Hospital(HospitalID)
+-- Create Vaccination Table
+CREATE TABLE IF NOT EXISTS vaccination (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    hospital_id INT,
+    vaccine_name VARCHAR(100),
+    dose_number ENUM('First', 'Second', 'Booster'),
+    status ENUM('Scheduled', 'Completed') DEFAULT 'Scheduled',
+    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (hospital_id) REFERENCES hospital(id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Create Tests table
