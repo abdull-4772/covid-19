@@ -1,4 +1,7 @@
 <?php
+
+require_once __DIR__ . '/dbDefine.php';
+
 class dbConnection
 {
 
@@ -11,12 +14,6 @@ class dbConnection
 
     public function __construct()
     {
-
-
-        echo "<pre>";
-        print_r($this->connection);
-        echo "</pre>";
-        require_once 'dbDefine.php';
 
         $this->host = DB_HOST;
         $this->username = DB_USERNAME;

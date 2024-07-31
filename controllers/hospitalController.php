@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../config/Database.php';
-require_once __DIR__ . '/../models/Hospital.php';
+require_once __DIR__ . '/../models/hospitalModel.php';
 
 class HospitalController
 {
