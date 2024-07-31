@@ -90,7 +90,7 @@
     <div class="site-section">
       <div class="container">
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-12 text-center mx-auto">
             <h2 class="section-heading">Hospital Registration</h2>
             <p>Hospitals can register and manage their appointment slots here.</p>
             <a href="hospital-registration.php" class="btn btn-primary">Register Hospital</a>
@@ -102,7 +102,7 @@
     <div class="site-section">
       <div class="container">
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-12 text-center mx-auto">
             <h2 class="section-heading">Online Registration & Appointment</h2>
             <p>Register for a test or vaccination and book your appointment.</p>
             <a href="register-appointment.php" class="btn btn-primary">Register & Book Appointment</a>
@@ -114,7 +114,7 @@
     <div class="site-section">
       <div class="container">
         <div class="row">
-          <div class="col-lg-12">
+        <div class="col-lg-12 text-center mx-auto">
             <h2 class="section-heading">Detailed Reports</h2>
             <p>Access detailed reports on test and vaccination appointments.</p>
             <a href="reports.php" class="btn btn-primary">View Reports</a>
@@ -126,7 +126,7 @@
     <div class="site-section">
       <div class="container">
         <div class="row">
-          <div class="col-lg-12">
+        <div class="col-lg-12 text-center mx-auto">
             <h2 class="section-heading">Hospital Dashboard</h2>
             <p>Manage your appointments and monitor patient flow.</p>
             <a href="hospital-dashboard.php" class="btn btn-primary">Go to Dashboard</a>

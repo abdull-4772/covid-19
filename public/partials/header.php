@@ -53,8 +53,8 @@
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li class="active"><a href="index.php" class="nav-link">Home</a></li>
-                <li><a href="./about.php" class="nav-link">About</a></li>
-                <li><a href="blog.php" class="nav-link">Blog</a></li>
+                <li><a href="./about.php" class="nav-link">hospital</a></li>
+                <li><a href="blog.php" class="nav-link">patient</a></li>
                 <li><a href="contact.php" class="nav-link">Contact</a></li>
               </ul>
             </nav>
