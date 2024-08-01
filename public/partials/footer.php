@@ -1,82 +1,57 @@
 <footer class="site-footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-4">
-        <h2 class="footer-heading mb-4">About</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi cumque tenetur inventore veniam, hic vel ipsa necessitatibus ducimus architecto fugiat!</p>
-        <div class="my-5">
-          <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-          <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-          <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-          <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
-        </div>
-      </div>
-      <div class="col-lg-8">
+      <div class="container">
         <div class="row">
           <div class="col-lg-4">
-            <h2 class="footer-heading mb-4">Quick Links</h2>
-            <ul class="list-unstyled">
-              <li><a href="#">Symptoms</a></li>
-              <li><a href="#">Prevention</a></li>
-              <li><a href="#">FAQs</a></li>
-              <li><a href="#">About Coronavirus</a></li>
-              <li><a href="#">Contact Us</a></li>
-            </ul>
+            <div class="mb-4">
+              <h3 class="footer-heading mb-4">About Us</h3>
+              <p>We are dedicated to providing reliable information and resources for COVID-19 testing and vaccination. Our goal is to support public health and safety during the pandemic.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="row mb-3">
+              <div class="col-md-12">
+                <h3 class="footer-heading mb-4">Navigations</h3>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <ul class="list-unstyled">
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Privacy</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <ul class="list-unstyled">
+                  <li><a href="#">News</a></li>
+                  <li><a href="#">Advertise</a></li>
+                  <li><a href="#">Careers</a></li>
+                  <li><a href="#">Partnership</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
           <div class="col-lg-4">
-            <h2 class="footer-heading mb-4">Helpful Link</h2>
-            <ul class="list-unstyled">
-              <li><a href="#">Helathcare Professional</a></li>
-              <li><a href="#">LGU Facilities</a></li>
-              <li><a href="#">Protect Your Family</a></li>
-              <li><a href="#">World Health</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-4">
-            <h2 class="footer-heading mb-4">Resources</h2>
-            <ul class="list-unstyled">
-              <li><a href="#">WHO Website</a></li>
-              <li><a href="#">CDC Website</a></li>
-              <li><a href="#">Gov Website</a></li>
-              <li><a href="#">DOH Website</a></li>
-            </ul>
+            <div class="mb-4">
+              <h3 class="footer-heading mb-4">Follow Us</h3>
+              <p>
+                <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row text-center">
-      <div class="col-md-12">
-        <div class="border-top pt-5">
-          <p class="copyright"><small>
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              Copyright &copy;<script>
-                document.write(new Date().getFullYear());
-              </script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">COVID-19</a>
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small></p>
-
-        </div>
-      </div>
+    </footer>
 
     </div>
-  </div>
 
+    <script src="./public/js/jquery-3.3.1.min.js"></script>
+    <script src="./public/js/popper.min.js"></script>
+    <script src="./public/js/bootstrap.min.js"></script>
+    <script src="./public/js/jquery.sticky.js"></script>
+    <script src="./public/js/main.js"></script>
 
-</footer> <!-- .site-wrap -->
-
-<script src="./public/js/jquery-3.3.1.min.js"></script>
-<script src="./public/js/jquery-ui.js"></script>
-<script src="./public/js/popper.min.js"></script>
-<script src="./public/js/bootstrap.min.js"></script>
-<script src="./public/js/owl.carousel.min.js"></script>
-<script src="./public/js/jquery.countdown.min.js"></script>
-<script src="./public/js/jquery.easing.1.3.js"></script>
-<script src="./public/js/aos.js"></script>
-<script src="./public/js/jquery.fancybox.min.js"></script>
-<script src="./public/js/jquery.sticky.js"></script>
-<script src="./public/js/isotope.pkgd.min.js"></script>
-
-<script src="./public/js/main.js"></script>
-
-</body>
-
+  </body>
 </html>

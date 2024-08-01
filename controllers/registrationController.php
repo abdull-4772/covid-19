@@ -32,7 +32,7 @@ class UserController
                 } else {
                     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
                     if ($userModel->create($name, $email, $hashedPassword, $age, $gender, $address, $phone)) {
-                        header('Location: http://localhost/covid-19/views/patient/welcome.php');
+                        header('Location: ../index.php');
                         echo "Registration successful.";
                         exit;
                     } else {

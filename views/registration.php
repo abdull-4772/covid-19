@@ -19,7 +19,7 @@
         .container {
             width: 100%;
             max-width: 400px;
-            padding: 40px;
+            padding: 10px 35px;
             background: #6f42c1;
             border-radius: 10px;
             box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
@@ -27,7 +27,7 @@
         }
 
         .login-box h2 {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             font-size: 24px;
             text-transform: uppercase;
             color: #fff;
@@ -43,7 +43,7 @@
         .user-box input[type="email"],
         .user-box input[type="password"],
         .user-box input[type="number"] {
-            padding: 10px;
+            padding: 8px;
             border: none;
             border-bottom: 1px solid #fff;
             outline: none;
@@ -232,7 +232,7 @@
     <div class="container">
         <div class="login-box">
             <h2>Register</h2>
-            <form action="http://localhost/covid-19/controllers/registration.php" method="POST">
+            <form action="../controllers/registrationController.php" method="POST">
                 <div class="user-box">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required>
