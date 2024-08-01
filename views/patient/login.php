@@ -209,7 +209,7 @@
                     <input type="password" name="password" required>
                     <label>Password</label>
                 </div>
-                <button class="button" type="submite">
+                <button class="button" type="submit">
                     <span></span>
                     <span></span>
                     <span></span>

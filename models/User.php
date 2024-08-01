@@ -9,7 +9,7 @@ class UserModel {
     public function create($name, $email, $hashedPassword, $age, $gender, $address, $phone) {
         $query = "INSERT INTO `user` (name, email, password, age, gender, address, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("sssisss", $name, $email, $hashedPassword, $age, $gender, $address, $phone);
+        $stmt->bind_param("sssissi", $name, $email, $hashedPassword, $age, $gender, $address, $phone);
         return $stmt->execute();
     }
 
