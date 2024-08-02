@@ -10,15 +10,8 @@ class UserModel {
     public function create($name, $email, $hashedPassword, $age, $gender, $address, $phone) {
         $query = "INSERT INTO user (name, email, password, age, gender, address, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
-        if (!$stmt) {
-            die("Preparation failed: " . $this->conn->error);
-        }
         $stmt->bind_param("sssisss", $name, $email, $hashedPassword, $age, $gender, $address, $phone);
-        $result = $stmt->execute();
-        if (!$result) {
-            die("Execution failed: " . $stmt->error);
-        }
-        return $result;
+        return $stmt->execute();
     }
     
 
