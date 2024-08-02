@@ -2,28 +2,37 @@
 class UserModel {
     private $conn;
 
-    public function __construct($conn) {
+    public function __construct($conn)
+    {
         $this->conn = $conn;
     }
 
     public function create($name, $email, $hashedPassword, $age, $gender, $address, $phone) {
-        $query = "INSERT INTO `user` (name, email, password, age, gender, address, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO user (name, email, password, age, gender, address, phone_number) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
+        if (!$stmt) {
+            die("Preparation failed: " . $this->conn->error);
+        }
         $stmt->bind_param("sssisss", $name, $email, $hashedPassword, $age, $gender, $address, $phone);
-        return $stmt->execute();
+        $result = $stmt->execute();
+        if (!$result) {
+            die("Execution failed: " . $stmt->error);
+        }
+        return $result;
     }
+    
 
     public function findByEmail($email) {
-        $query = "SELECT * FROM `user` WHERE email = ?";
+        $query = "SELECT * FROM user WHERE email = ?";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->num_rows > 0;
+        return $result->num_rows > 0 ? $result->fetch_assoc() : false;
     }
 
     public function login($email, $password) {
-        $query = "SELECT * FROM `user` WHERE email = ?";
+        $query = "SELECT * FROM user WHERE email = ?";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("s", $email);
         $stmt->execute();

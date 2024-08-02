@@ -200,7 +200,8 @@
     <div class="container">
         <div class="login-box">
             <h2>Login</h2>
-            <form action="../../controllers/registration.php" method="POST">
+            <form action="../controllers/UserController.php" method="POST">
+                <input type="hidden" name="action" value="login">
                 <div class="user-box">
                     <input type="email" name="email" required>
                     <label>Email</label>
@@ -209,7 +210,7 @@
                     <input type="password" name="password" required>
                     <label>Password</label>
                 </div>
-                <button class="button" type="submite">
+                <button class="button" type="submit">
                     <span></span>
                     <span></span>
                     <span></span>

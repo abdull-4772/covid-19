@@ -232,7 +232,8 @@
     <div class="container">
         <div class="login-box">
             <h2>Register</h2>
-            <form action="../controllers/registrationController.php" method="POST">
+            <form action="../controllers/UserController.php" method="POST">
+                <input type="hidden" name="action" value="register">
                 <div class="user-box">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required>

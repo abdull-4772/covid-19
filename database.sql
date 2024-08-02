@@ -1,6 +1,8 @@
+-- Create the database
 CREATE DATABASE IF NOT EXISTS covid_19;
 USE covid_19;
 
+-- Create user table
 CREATE TABLE IF NOT EXISTS user (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -12,8 +14,9 @@ CREATE TABLE IF NOT EXISTS user (
     phone_number VARCHAR(15),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 -- Create Admin table
-CREATE TABLE Admin (
+CREATE TABLE IF NOT EXISTS Admin (
     AdminID INT AUTO_INCREMENT PRIMARY KEY,
     Username VARCHAR(50) NOT NULL UNIQUE,
     Password VARCHAR(255) NOT NULL,
@@ -22,7 +25,7 @@ CREATE TABLE Admin (
     CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create Hospital Table
+-- Create Hospital table
 CREATE TABLE IF NOT EXISTS hospital (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -34,7 +37,7 @@ CREATE TABLE IF NOT EXISTS hospital (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create Appointment Table
+-- Create Appointment table
 CREATE TABLE IF NOT EXISTS appointment (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
@@ -47,7 +50,7 @@ CREATE TABLE IF NOT EXISTS appointment (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create Test Results Table
+-- Create Test Results table
 CREATE TABLE IF NOT EXISTS test_results (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
@@ -59,7 +62,7 @@ CREATE TABLE IF NOT EXISTS test_results (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create Vaccination Table
+-- Create Vaccination table
 CREATE TABLE IF NOT EXISTS vaccination (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
@@ -73,31 +76,31 @@ CREATE TABLE IF NOT EXISTS vaccination (
 );
 
 -- Create Tests table
-CREATE TABLE Tests (
+CREATE TABLE IF NOT EXISTS Tests (
     TestID INT AUTO_INCREMENT PRIMARY KEY,
     PatientID INT,
     TestDate DATE,
     Result ENUM('Positive', 'Negative', 'Pending'),
     HospitalID INT,
-    FOREIGN KEY (PatientID) REFERENCES Patient(PatientID),
-    FOREIGN KEY (HospitalID) REFERENCES Hospital(HospitalID)
+    FOREIGN KEY (PatientID) REFERENCES user(id),
+    FOREIGN KEY (HospitalID) REFERENCES hospital(id)
 );
 
 -- Create HospitalApproval table
-CREATE TABLE HospitalApproval (
+CREATE TABLE IF NOT EXISTS HospitalApproval (
     ApprovalID INT AUTO_INCREMENT PRIMARY KEY,
     HospitalID INT,
     ApprovedBy INT,
     ApprovedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     Status ENUM('Approved', 'Rejected'),
-    FOREIGN KEY (HospitalID) REFERENCES Hospital(HospitalID),
+    FOREIGN KEY (HospitalID) REFERENCES hospital(id),
     FOREIGN KEY (ApprovedBy) REFERENCES Admin(AdminID)
 );
 
 -- Indexes for optimization
-CREATE INDEX idx_patient_email ON Patient(Email);
-CREATE INDEX idx_hospital_email ON Hospital(Email);
-CREATE INDEX idx_appointments_patient_id ON Appointments(PatientID);
-CREATE INDEX idx_appointments_hospital_id ON Appointments(HospitalID);
-CREATE INDEX idx_tests_patient_id ON Tests(PatientID);
+CREATE INDEX idx_user_email ON user(email);
+CREATE INDEX idx_hospital_email ON hospital(email);
+CREATE INDEX idx_appointments_user_id ON appointment(user_id);
+CREATE INDEX idx_appointments_hospital_id ON appointment(hospital_id);
+CREATE INDEX idx_tests_user_id ON Tests(PatientID);
 CREATE INDEX idx_tests_hospital_id ON Tests(HospitalID);
