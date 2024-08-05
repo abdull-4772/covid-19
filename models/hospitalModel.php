@@ -6,21 +6,35 @@ class Hospital {
         $this->conn = $conn;
     }
 
-    public function register($name, $address, $location, $contact_number, $email, $password) {
-        $query = "INSERT INTO hospitals (name, address, location, contact_number, email, password) VALUES (?, ?, ?, ?, ?, ?)";
+    public function register($name, $address, $contact_number, $email, $password) {
+        $query = "INSERT INTO hospital (name, address, contact_number, email, password) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-        $stmt->bind_param("sssiss", $name, $address, $location, $contact_number, $email, $hashedPassword);
+        $stmt->bind_param("sssss", $name, $address, $contact_number, $email, $hashedPassword);
         return $stmt->execute();
     }
 
     public function findByEmail($email) {
-        $query = "SELECT * FROM hospitals WHERE email = ?";
+        $query = "SELECT * FROM hospital WHERE email = ?";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_assoc();
+    }
+
+    public function login($email, $password) {
+        $query = "SELECT * FROM hospital WHERE email = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $user = $result->fetch_assoc();
+
+        if ($user && password_verify($password, $user['password'])) {
+            return $user;
+        }
+        return false;
     }
 
     public function updateTestResult($patientId, $testResult) {

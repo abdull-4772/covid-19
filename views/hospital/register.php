@@ -1,7 +1,3 @@
-<?php 
-require_once './controllers/hospitalController.php';
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -44,6 +40,7 @@ require_once './controllers/hospitalController.php';
         }
 
         .user-box input[type="text"],
+        .user-box input[type="text"],
         .user-box input[type="email"],
         .user-box input[type="password"],
         .user-box input[type="number"] {
@@ -60,64 +57,6 @@ require_once './controllers/hospitalController.php';
             display: block;
             color: #fff;
             text-align: left;
-        }
-
-        .gender-box {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 15px 0px;
-        }
-
-        .gender-option {
-            display: flex;
-            align-items: center;
-        }
-
-        .gender-option input[type="radio"] {
-            margin-right: 5px;
-        }
-
-        .gender_section_line {
-            width: 60vh;
-            background: white;
-            height: 0.5px;
-            margin-bottom: 10px;
-        }
-
-        .user-box .gender-box input[type="radio"] {
-            appearance: none;
-            background-color: #fff;
-            margin: 0 0.5em 0 0;
-            font: inherit;
-            color: currentColor;
-            width: 1.6em;
-            height: 1.1em;
-            border: 0.15em solid currentColor;
-            border-radius: 50%;
-            display: grid;
-            place-content: center;
-            cursor: pointer;
-        }
-
-        .user-box .gender-box input[type="radio"]::before {
-            content: "";
-            width: 0.65em;
-            height: 0.65em;
-            border-radius: 50%;
-            transform: scale(0);
-            transition: 120ms transform ease-in-out;
-            background-color: #fff;
-            box-shadow: inset 1em 1em #6f42c1;
-        }
-
-        .user-box .gender-box input[type="radio"]:checked::before {
-            transform: scale(1);
-        }
-
-        .user-box .gender-box input[type="radio"]:focus {
-            outline: 2px solid #f686ff;
-            outline-offset: 2px;
         }
 
         .button {
@@ -236,10 +175,20 @@ require_once './controllers/hospitalController.php';
     <div class="container">
         <div class="login-box">
             <h2>Register</h2>
-            <form action="../controllers/hospitlController.php" method="POST">
-                <div class="user-box">
+            <form action="../../controllers/hospitalController.php" method="POST">
+            <input type="hidden" name="action" value="register">
+            <div class="user-box">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required>
+                </div>
+                <div class="gender_section_line"></div>
+                <div class="user-box">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address">
+                </div>
+                <div class="user-box">
+                    <label for="contact_number">Contact Number</label>
+                    <input type="text" id="contact_number" name="contact_number">
                 </div>
                 <div class="user-box">
                     <label for="email">Email</label>
@@ -249,36 +198,7 @@ require_once './controllers/hospitalController.php';
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" required>
                 </div>
-                <div class="user-box">
-                    <label for="age">Age</label>
-                    <input type="number" id="age" name="age">
-                </div>
-                <div class="user-box">
-                    <label>Gender</label>
-                    <div class="gender-box">
-                        <div class="gender-option">
-                            <input type="radio" id="male" name="gender" value="Male" required>
-                            <label for="male">Male</label>
-                        </div>
-                        <div class="gender-option">
-                            <input type="radio" id="female" name="gender" value="Female" required>
-                            <label for="female">Female</label>
-                        </div>
-                        <div class="gender-option">
-                            <input type="radio" id="other" name="gender" value="Other" required>
-                            <label for="other">Other</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="gender_section_line"></div>
-                <div class="user-box">
-                    <label for="address">Address</label>
-                    <input type="text" id="address" name="address">
-                </div>
-                <div class="user-box">
-                    <label for="phone_number">Phone Number</label>
-                    <input type="text" id="phone_number" name="phone_number">
-                </div>
+
                 <button type="submit" class="button">
                     Register
                     <span></span><span></span><span></span><span></span>

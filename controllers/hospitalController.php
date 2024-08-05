@@ -7,28 +7,28 @@ class HospitalController
     private $db;
     private $conn;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->db = new Database();
         $this->conn = $this->db->getConnection();
     }
 
-    public function register() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    public function register()
+    {
             $name = trim($_POST['name']);
             $address = trim($_POST['address']);
-            $location = trim($_POST['location']);
             $contact_number = trim($_POST['contact_number']);
             $email = trim($_POST['email']);
             $password = trim($_POST['password']);
 
-            if (!empty($name) && !empty($address) && !empty($location) && !empty($email) && !empty($password)) {
+            if (!empty($name) && !empty($address) && !empty($email) && !empty($password)) {
                 $hospitalModel = new Hospital($this->conn);
                 if ($hospitalModel->findByEmail($email)) {
                     echo "Email already registered.";
                 } else {
-                    if ($hospitalModel->register($name, $address, $location,  $contact_number , $email, $password)) {
+                    if ($hospitalModel->register($name, $address, $contact_number, $email, $password)) {
+                        header('Location: ../index.php');
                         echo "Registration successful.";
-                        header('Location: /views/hospital/welcome.php');
                         exit;
                     } else {
                         echo "Registration failed. Please try again.";
@@ -38,43 +38,50 @@ class HospitalController
                 echo "Please fill in all required fields.";
             }
         }
-    }
+    
 
-    public function login() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        public function login()
+        {
             $email = trim($_POST['email']);
             $password = trim($_POST['password']);
-
+    
             if (!empty($email) && !empty($password)) {
-                $hospitalModel = new Hospital($this->conn);
-                $hospital = $hospitalModel->findByEmail($email);
-
-                if ($hospital && password_verify($password, $hospital['password'])) {
+                $userModel = new Hospital($this->conn);
+                $user = $userModel->login($email, $password);
+    
+                if ($user) {
                     session_start();
-                    $_SESSION['hospital_id'] = $hospital['id'];
-                    $_SESSION['hospital_name'] = $hospital['name'];
-                    header('Location: /views/hospital/welcome.php');
+                    $_SESSION['user_id'] = $user['id'];
+                    $_SESSION['email'] = $user['email'];
+                    header('Location: ../index.php');
                     exit;
                 } else {
-                    echo "Invalid email or password.";
+                    header('Location: ../views/hospital/login.php?error=Invalid+credentials');
+                    exit;
                 }
             } else {
                 echo "Email and password are required.";
             }
         }
-    }
 
-    public function __destruct() {
+    public function __destruct()
+    {
         $this->db->closeConnection();
     }
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $controller = new HospitalController();
-    if (isset($_POST['register'])) {
-        $controller->register();
-    } elseif (isset($_POST['login'])) {
-        $controller->login();
+
+    if (isset($_POST['action'])) {
+        if ($_POST['action'] === 'register') {
+            $controller->register();
+        } elseif ($_POST['action'] === 'login') {
+            $controller->login();
+        } else {
+            echo "Invalid action";
+        }
+    } else {
+        echo "No action specified";
     }
 }
-?>
