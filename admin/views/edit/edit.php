@@ -112,8 +112,10 @@
 
 <body>
     <?php
+
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        require_once "../../controllers/userController.php";
+        require_once  "../../controllers/userController.php";
+
         $userId = $_GET['id'];
         $userReadCont = new userController;
         $getResult = $userReadCont->readOne("user", "$userId");
@@ -151,33 +153,33 @@
                 <div>
                     <div class="user-box">
                         <input type="number" name="id" value="<?php echo $id; ?>" hidden>
-                        <input type="text" name="name" class="inputVal" placeholder="<?php echo $name; ?>">
+                        <input type="text" name="name" class="inputVal" value="<?php echo $name; ?>">
                         <label>Name</label>
                     </div>
                     <div class="user-box">
-                        <input type="email" name="email" class="inputVal" placeholder="<?php echo $email; ?>">
+                        <input type="email" name="email" class="inputVal" value="<?php echo $email; ?>">
                         <label>Email</label>
                     </div>
                     <div class="user-box">
-                        <input type="password" name="password" class="inputVal" placeholder="<?php echo $password; ?>" id="pass">
+                        <input type="password" name="password" class="inputVal" value="<?php echo $password; ?>" id="pass">
                         <label>Password</label>
                     </div>
                     <div class="user-box">
-                        <input type="number" name="age" class="inputVal" placeholder="<?php echo $age; ?>">
+                        <input type="number" name="age" class="inputVal" value="<?php echo $age; ?>">
                         <label>Age</label>
                     </div>
                 </div>
                 <div>
                     <div class="user-box">
-                        <input type="text" name="gender" class="inputVal" placeholder="<?php echo $gender; ?>">
+                        <input type="text" name="gender" class="inputVal" value="<?php echo $gender; ?>">
                         <label>Gender</label>
                     </div>
                     <div class="user-box">
-                        <input type="text" name="address" class="inputVal" placeholder="<?php echo $address; ?>">
+                        <input type="text" name="address" class="inputVal" value="<?php echo $address; ?>">
                         <label>Address</label>
                     </div>
                     <div class="user-box">
-                        <input type="text" name="phonenumber" class="inputVal" placeholder="<?php echo $phonenbr; ?>">
+                        <input type="text" name="phonenumber" class="inputVal" value="<?php echo $phonenbr; ?>">
                         <label>Phone number</label>
                     </div>
                 </div>

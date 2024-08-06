@@ -47,9 +47,9 @@
                         <td>' . $row['phone_number'] . '</td>
                         <td>' . $row['created_at'] . '</td>
                         <td>
-                            <a href="/admin/views/edit/edit.php?id=' . $row['id'] . '" id="edit">Edit</a>
+                            <a href="./edit/edit.php?id=' . $row['id'] . '" id="edit">Edit</a>
                             /
-                            <a href="/admin/views/delete/delete.php?id=' . $row['id'] . '" id="delete" >Delete</a>
+                            <a href="./delete/delete.php?id=' . $row['id'] . '" id="delete" >Delete</a>
                         </td>
                         </tr>';
                     }

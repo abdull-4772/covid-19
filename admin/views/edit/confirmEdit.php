@@ -1,5 +1,6 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require_once "../../controllers/userController.php";
     $id = $_POST['id'];
     $name = $_POST['name'];
@@ -13,10 +14,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $userUpdate = new userController;
     $getUpdateResult = $userUpdate->update("user", $id, $name, $email, $password, $age, $gender, $address, $phonenbr);
     if ($getUpdateResult == true) {
-        header("Location: /admin/views/users.php?status=1");
+        header("Location: ../users.php?status=1");
     } else {
-        header("Location: /admin/views/users.php?status=0");
+        header("Location: ../users.php?status=0");
     }
 } else {
-    header("Location: /admin/views/users.php");
+    header("Location: ../users.php");
 }
