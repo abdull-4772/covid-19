@@ -121,12 +121,26 @@ a#delete:hover {
     transition: all 0.5s;
 }
 
-.custom-alert-box h2 {
+#deletedAlertBox h2 {
     color: #d9534f;
+    margin-bottom: 20px;
+}
+#updatedAlertBox h2 {
+    color: green;
     margin-bottom: 20px;
 }
 
 .custom-alert-box p {
     color: #333;
     margin-bottom: 20px;
+}
+
+#deletedAlertBox {
+    border-left: 5px solid red;
+    border-right: 5px solid red;
+}
+
+#updatedAlertBox {
+    border-left: 5px solid green;
+    border-right: 5px solid green;
 }
