@@ -14,9 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $userUpdate = new userController;
     $getUpdateResult = $userUpdate->update("user", $id, $name, $email, $password, $age, $gender, $address, $phonenbr);
     if ($getUpdateResult == true) {
-        header("Location: ../users.php?status=1");
+        header("Location: ../users.php?status=edited");
     } else {
-        header("Location: ../users.php?status=0");
+        header("Location: ../users.php?status=notedited");
     }
 } else {
     header("Location: ../users.php");

@@ -5,10 +5,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userDeleteCont = new userController;
     $getDeleteResult = $userDeleteCont->delete("user", "$Id");
     if (isset($getDeleteResult)) {
-        header("Location: /admin/views/users.php?status=1");
+        header("Location: ../users.php?status=deleted");
     } else {
-        header("Location: /admin/views/users.php?status=0");
+        header("Location: ../users.php?status=notdeleted");
     }
 }else{
-    header("Location: /admin/views/users.php");
+    header("Location: ../users.php");
 }

@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 <body>
     <div class="main">
         <table>
-            <h1>User table</h1>
+            <h1>Delete User</h1>
             <thead>
                 <tr>
                     <th>id</th>
