@@ -27,7 +27,7 @@ class HospitalController
                     echo "Email already registered.";
                 } else {
                     if ($hospitalModel->register($name, $address, $contact_number, $email, $password)) {
-                        header('Location: ../index.php');
+                        header('Location: ../views/hospital/control_panel/hospitalDashboard.php');
                         echo "Registration successful.";
                         exit;
                     } else {
@@ -53,7 +53,7 @@ class HospitalController
                     session_start();
                     $_SESSION['user_id'] = $user['id'];
                     $_SESSION['email'] = $user['email'];
-                    header('Location: ../index.php');
+                    header('Location: ../views/hospital/control_panel/hospitalDashboard.php');
                     exit;
                 } else {
                     header('Location: ../views/hospital/login.php?error=Invalid+credentials');

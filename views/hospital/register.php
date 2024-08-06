@@ -178,7 +178,7 @@
             <form action="../../controllers/hospitalController.php" method="POST">
             <input type="hidden" name="action" value="register">
             <div class="user-box">
-                    <label for="name">Name</label>
+                    <label for="name">Hospital Name</label>
                     <input type="text" id="name" name="name" required>
                 </div>
                 <div class="gender_section_line"></div>

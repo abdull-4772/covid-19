@@ -24,13 +24,6 @@
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
-  <!-- <div id="overlayer"></div>
-  <div class="loader">
-    <div class="spinner-border text-primary" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-  </div> -->
-
   <div class="site-wrap">
 
     <div class="site-mobile-menu site-navbar-target">
@@ -53,9 +46,9 @@
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li class="active"><a href="index.php" class="nav-link">Home</a></li>
-                <li><a href="./about.php" class="nav-link">hospital</a></li>
+                <li><a href="../../views/hospital/control_panel/hospitalDashboard.php" class="nav-link">hospital</a></li>
                 <li><a href="blog.php" class="nav-link">patient</a></li>
-                <li><a href="contact.php" class="nav-link">Contact</a></li>
+                <li><a href="../contact.php" class="nav-link">Contact</a></li>
               </ul>
             </nav>
           </div>
