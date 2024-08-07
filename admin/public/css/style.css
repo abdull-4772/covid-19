@@ -67,6 +67,10 @@ body {
     font-size: 35px;
     cursor: pointer;
 }
+.open-btn{
+    color: black;
+
+}
 
 .main-content {
     flex-grow: 1;
