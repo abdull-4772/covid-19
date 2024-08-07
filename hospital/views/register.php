@@ -175,7 +175,7 @@
     <div class="container">
         <div class="login-box">
             <h2>Register</h2>
-            <form action="../../controllers/hospitalController.php" method="POST">
+            <form action="../controllers/hospitalController.php" method="POST">
             <input type="hidden" name="action" value="register">
             <div class="user-box">
                     <label for="name">Hospital Name</label>
