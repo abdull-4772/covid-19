@@ -13,7 +13,7 @@ require_once "../controllers/userController.php";
 </head>
 
 <body>
-
+    <?php include_once "./partial/sidebarHead.php"; ?>
     <!-- Alerts box Start -->
     <div id="customAlertOverlay" class="custom-overlay">
         <?php
@@ -77,8 +77,12 @@ require_once "../controllers/userController.php";
             <h2>Confirm Deletion</h2>
             <p>Are you sure you want to delete this user?</p>
             <form action="./delete/delete.php" method="POST">
-                <input type="text" name="id" value="<?php if ($userId != "") {echo $userId;} ?>" hidden>
-                <h1 style="text-decoration:underline;"><?php if ($userName != "") {echo $userName;} ?></h1>
+                <input type="text" name="id" value="<?php if ($userId != "") {
+                                                        echo $userId;
+                                                    } ?>" hidden>
+                <h1 style="text-decoration:underline;"><?php if ($userName != "") {
+                                                            echo $userName;
+                                                        } ?></h1>
                 <button type="button" class="btn cancelBtn" onclick="cancelFormSubmission(event)">Cancel</button>
                 <input type="submit" value="Confirm" class="btn confirmBtn">
             </form>
@@ -137,8 +141,11 @@ require_once "../controllers/userController.php";
             </tbody>
         </table>
     </div>
+    <?php include_once "./partial/sidebarFoot.php"; ?>
 
     <script>
+      
+
         // Showing Alert Boxes
         let alertBackground = document.querySelector("#customAlertOverlay");
         let deletedAlertBox = document.querySelector("#deletedAlertBox");

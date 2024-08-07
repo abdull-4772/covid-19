@@ -13,9 +13,91 @@ body {
     line-height: 1.6;
 }
 
+/* side navigation bar */
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: green;
+    padding-top: 20px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #45a049;
+    color: white;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-menu li {
+    padding: 8px 20px;
+}
+
+.sidebar-menu li a {
+    padding: 10px 10px;
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.sidebar-menu li a:hover {
+    background-color: #45a049;
+    border-radius: 4px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+.main-content .open-btn {
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    margin: 20px;
+}
+
+.main-content .content {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+}
+
+@media screen and (max-width: 600px) {
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+/* user main content start here  */
 .main {
     /* max-width: 1200px; */
-    width: 95%;
+    width: 100%;
     margin: 40px auto;
     padding: 20px;
     background: #fff;
@@ -146,13 +228,16 @@ a#delete:hover {
     border-left: 5px solid green;
     border-right: 5px solid green;
 }
+
 #deleteConfirmBox {
     border-left: 5px solid green;
     border-right: 5px solid green;
 }
-.cancelBtn{
+
+.cancelBtn {
     background-color: #d9534f;
 }
-.cancelBtn:hover{
+
+.cancelBtn:hover {
     background-color: red;
 }
