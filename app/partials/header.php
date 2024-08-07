@@ -6,19 +6,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700;900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="fonts/icomoon/style.css">
-  <link rel="stylesheet" href="./public/css/bootstrap.min.css">
-  <link rel="stylesheet" href="./public/css/jquery-ui.css">
-  <link rel="stylesheet" href="./public/css/owl.carousel.min.css">
-  <link rel="stylesheet" href="./public/css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="./public/css/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="./public/css/bootstrap-datepicker.css">
-  <link rel="stylesheet" href="./public/fonts/flaticon/font/flaticon.css">
-  <link rel="stylesheet" href="./public/fonts/flaticon-covid/font/flaticon.css">
-  <link rel="stylesheet" href="./public/css/aos.css">
-  <link rel="stylesheet" href="./public/css/style.css">
+  <link rel="stylesheet" href="./app/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./app/css/jquery-ui.css">
+  <link rel="stylesheet" href="./app/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="./app/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="./app/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="./app/css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="./app/fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="./app/fonts/flaticon-covid/font/flaticon.css">
+  <link rel="stylesheet" href="./app/css/aos.css">
+  <link rel="stylesheet" href="./app/css/style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700;900&display=swap" rel="stylesheet">
+
 
 </head>
 
