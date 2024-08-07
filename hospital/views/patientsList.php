@@ -8,20 +8,19 @@
     <link rel="stylesheet" href="custom-style.css">
 </head>
 <body>
-    <header class="header bg-purple text-white py-3">
-        <div class="container d-flex justify-content-between align-items-center">
-            <div class="logo h4">Hospital Name</div>
-            <nav>
-                <a href="/views/hospital/control_panel/hospitalDashboard.php" class="text-white mx-2">Dashboard</a>
-                <a href="/views/hospital/control_panel/patientsList.php" class="text-white mx-2">Patient Requests</a>
-                <a href="/views/hospital/control_panel/testResults.php" class="text-white mx-2">Test Results</a>
-                <a href="/views/hospital/control_panel/vaccination.php" class="text-white mx-2">Vaccination Status</a>
-                <a href="/views/hospital/control_panel/profile.php" class="text-white mx-2">Profile</a>
-                <a href="/views/hospital/control_panel/logout.php" class="text-white mx-2">Logout</a>
-            </nav>
+<div class="d-flex">
+        <div class="sidebar">
+            <div class="h4 mb-4 px-3">Hospital Name</div>
+            <ul class="list-unstyled">
+                <li><a href="./hospitalDashboard.php">Dashboard</a></li>
+                <li><a href="./patientsList.php">Patient Requests</a></li>
+                <li><a href="./testResults.php">Test Results</a></li>
+                <li><a href="./vaccination.php">Vaccination Status</a></li>
+                <li><a href="./profile.php">Profile</a></li>
+                <li><a href="./logout.php">Logout</a></li>
+            </ul>
         </div>
-    </header>
-    <div class="container my-4">
+        <div class="content my-4">
         <table class="table table-bordered">
             <thead>
                 <tr>

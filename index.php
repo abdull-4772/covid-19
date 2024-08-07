@@ -1,4 +1,4 @@
-<?php include("./public/partials/header.php"); ?>
+<?php include("./website/public/partials/header.php"); ?>
 
 <div class="hero-v1">
       <div class="container">
@@ -11,7 +11,7 @@
           </div>
           <div class="col-lg-6">
             <figure class="illustration">
-              <img src="./public/images/illustration.png" alt="Image" class="img-fluid">
+              <img src="./website/public/images/illustration.png" alt="Image" class="img-fluid">
             </figure>
           </div>
         </div>
@@ -63,7 +63,7 @@
         <div class="row">
           <div class="col-lg-6 mb-4 mb-lg-0">
             <figure class="img-play-vid">
-              <img src="./public/images/hero_1.jpg" alt="Image" class="img-fluid">
+              <img src="./website/public/images/hero_1.jpg" alt="Image" class="img-fluid">
               <div class="absolute-block d-flex">
                 <span class="text">Watch the Video</span>
                 <a href="https://www.youtube.com/watch?v=9pVy8sRC440" data-fancybox class="btn-play">
@@ -199,4 +199,4 @@
 
     
 
-    <?php include("./public/partials/footer.php"); ?>
+    <?php include("./website/public/partials/footer.php"); ?>
