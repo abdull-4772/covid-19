@@ -1,5 +1,38 @@
 <?php include("./app/partials/header.php"); ?>
 
+<!-- drop box start -->
+<div class="main-dropbox">
+  <div class="dropBox">
+    <i class="fa-solid fa-xmark" onclick="removeDropBox()"></i>
+    <div class="card hospital">
+      <div class="header">
+        <div class="content">
+          <span class="title">Hospital Login</span>
+          <p class="message">Access the hospital administration panel. Please login with your hospital credentials.</p>
+        </div>
+        <div class="actions">
+          <button class="register" type="button">Register</button>
+          <button class="login" type="button">Login</button>
+        </div>
+      </div>
+    </div>
+    <div class="card patient">
+      <div class="header">
+        <div class="content">
+          <span class="title">Patient Login</span>
+          <p class="message">Access your patient account. Please login to view your health records.</p>
+        </div>
+        <div class="actions">
+          <button class="register" type="button">Register</button>
+          <button class="login" type="button">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- drop box end -->
+
 <!-- Hero -->
 <div class="hero-v1">
   <div class="container">

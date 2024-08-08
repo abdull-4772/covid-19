@@ -6,7 +6,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
   <link rel="stylesheet" href="fonts/icomoon/style.css">
   <link rel="stylesheet" href="./app/css/bootstrap.min.css">
   <link rel="stylesheet" href="./app/css/jquery-ui.css">
@@ -19,8 +18,28 @@
   <link rel="stylesheet" href="./app/css/aos.css">
   <link rel="stylesheet" href="./app/css/style.css">
 
+  <!-- font awesome cdn -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700;900&display=swap" rel="stylesheet">
 
+  <style>
+    .dropbtn {
+      display: inline-block;
+      color: #000;
+      text-align: center;
+      padding: 10px 10px;
+      border: 1px solid #6f42c1;
+      border-radius: 24px;
+      transition: all 0.3s;
+    }
+
+
+    .dropbtn:hover {
+      background-color: #6f42c1;
+      cursor: pointer;
+      color: #fff;
+    }
+  </style>
 
 </head>
 
@@ -51,6 +70,11 @@
                 <li><a href="../../views/hospital/control_panel/hospitalDashboard.php" class="nav-link">Hospital</a></li>
                 <li><a href="blog.php" class="nav-link">Patient</a></li>
                 <li><a href="../contact.php" class="nav-link">Contact</a></li>
+
+                <li class="dropbtn" onclick="toggleDropBox()">
+                  Login / Register
+                </li>
+
               </ul>
             </nav>
           </div>
@@ -59,3 +83,4 @@
         </div>
       </div>
     </header>
+    
