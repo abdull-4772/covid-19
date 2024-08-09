@@ -30,7 +30,6 @@ CREATE TABLE IF NOT EXISTS hospital (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     address VARCHAR(255) NOT NULL,
-    location VARCHAR(255),
     contact_number VARCHAR(15),
     email VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
