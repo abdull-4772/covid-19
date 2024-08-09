@@ -4,9 +4,9 @@
         <button id="closeBtn" class="close-btn">&times;</button>
     </div>
     <ul class="sidebar-menu">
-        <li><a href="#dashboard">Dashboard</a></li>
-        <li><a href="#users">Users</a></li>
-        <li><a href="#settings">Settings</a></li>
+        <li><a href="./dashboard.php">Dashboard</a></li>
+        <li><a href="./patient.php">Patient</a></li>
+        <li><a href="./report.php">Report</a></li>
         <li><a href="#reports">Reports</a></li>
         <li><a href="#logout">Logout</a></li>
     </ul>

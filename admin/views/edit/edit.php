@@ -30,7 +30,7 @@
 
         .login-box h2 {
             margin-bottom: 30px;
-            color: #4caf50;
+            color: #007bff;
             text-transform: uppercase;
         }
 
@@ -46,7 +46,7 @@
             color: #333;
             margin-bottom: 5px;
             border: none;
-            border-bottom: 1px solid #4caf50;
+            border-bottom: 1px solid #007bff;
             outline: none;
             background: transparent;
         }
@@ -66,7 +66,7 @@
         .user-box input:valid~label {
             top: -20px;
             left: 0;
-            color: #4caf50;
+            color: #007bff;
             font-size: 12px;
         }
 
@@ -74,7 +74,7 @@
             display: inline-block;
             padding: 10px 20px;
             color: #fff;
-            background-color: #4caf50;
+            background-color: #007bff;
             border: none;
             font-size: 16px;
             text-decoration: none;
@@ -86,7 +86,7 @@
         }
 
         .btn:hover {
-            background-color: #388e3c;
+            background-color: #005bff;
         }
 
         form {

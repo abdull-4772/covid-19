@@ -20,7 +20,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: green;
+    background-color: #007bff;
     padding-top: 20px;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
@@ -35,7 +35,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #45a049;
+    background-color: #006bff;
     color: white;
 }
 
@@ -56,7 +56,7 @@ body {
 }
 
 .sidebar-menu li a:hover {
-    background-color: #45a049;
+    background-color: #006bff;
     border-radius: 4px;
 }
 
@@ -67,7 +67,8 @@ body {
     font-size: 35px;
     cursor: pointer;
 }
-.open-btn{
+
+.open-btn {
     color: black;
 
 }
@@ -112,7 +113,7 @@ body {
 .main h1 {
     margin-bottom: 20px;
     text-align: center;
-    color: #4CAF50;
+    color: #007bff;
     font-size: 2em;
 }
 
@@ -129,7 +130,7 @@ td {
 }
 
 thead {
-    background: #4CAF50;
+    background: #007bff;
     color: white;
 }
 
@@ -163,7 +164,7 @@ a#delete:hover {
     display: inline-block;
     padding: 10px 20px;
     color: #fff;
-    background-color: #4CAF50;
+    background-color: #007bff;
     border: none;
     font-size: 16px;
     text-decoration: none;
@@ -175,7 +176,7 @@ a#delete:hover {
 }
 
 .btn:hover {
-    background-color: #45a049;
+    background-color: #007bff;
 }
 
 /* alert box */
@@ -214,7 +215,7 @@ a#delete:hover {
 }
 
 #updatedAlertBox h2 {
-    color: green;
+    color: #007bff;
     margin-bottom: 20px;
 }
 
@@ -229,13 +230,13 @@ a#delete:hover {
 }
 
 #updatedAlertBox {
-    border-left: 5px solid green;
-    border-right: 5px solid green;
+    border-left: 5px solid #007bff;
+    border-right: 5px solid #007bff;
 }
 
 #deleteConfirmBox {
-    border-left: 5px solid green;
-    border-right: 5px solid green;
+    border-left: 5px solid #007bff;
+    border-right: 5px solid #007bff;
 }
 
 .cancelBtn {
@@ -245,3 +246,87 @@ a#delete:hover {
 .cancelBtn:hover {
     background-color: red;
 }
+
+
+/* dashbord start */
+.dashmain {
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+h1 {
+    margin-top: -20px;
+    margin-bottom: 40px;
+    color: #333;
+    text-align: center;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 20px;
+    place-items: center;
+}
+
+.box {
+    background: #007bff;
+    color: white;
+    padding: 20px;
+    margin: 10px;
+    width: 250px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.box h2 {
+    margin: 10px 0;
+}
+
+.box p {
+    font-size: 2em;
+    margin: 0;
+}
+
+.section {
+    margin-bottom: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    margin: 0 -20px 20px;
+    border-radius: 8px;
+}
+
+.button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* dashboard end */
+

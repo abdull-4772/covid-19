@@ -141,6 +141,7 @@ require_once "../controllers/userController.php";
             </tbody>
         </table>
     </div>
+
     <?php include_once "./partial/sidebarFoot.php"; ?>
 
     <script>
