@@ -24,7 +24,7 @@ INSERT INTO `hospital`(`name`, `address`, `location`, `contact_number`, `email`,
 
 
 -- User table domi data 
-INSERT INTO `user`(`name`, `email`, `password`, `age`, `gender`, `address`, `phone_number`, `created_at`) VALUES 
+INSERT INTO `patient`(`name`, `email`, `password`, `age`, `gender`, `address`, `phone_number`, `created_at`) VALUES 
 ('Alice Johnson', 'alice.johnson@example.com', 'password123', 28, 'Female', '123 Maple St', '+1234567890', '2024-01-10'),
 ('Bob Smith', 'bob.smith@example.com', 'password234', 34, 'Male', '456 Oak Ave', '+1234567891', '2024-02-14'),
 ('Charlie Brown', 'charlie.brown@example.com', 'password345', 45, 'Male', '789 Pine Rd', '+1234567892', '2024-03-05'),
@@ -48,23 +48,4 @@ INSERT INTO `user`(`name`, `email`, `password`, `age`, `gender`, `address`, `pho
 
 -- test_results table domi data 
 INSERT INTO `test_results`(`user_id`, `hospital_id`, `result`, `result_date`) VALUES 
-('38', '1', 'Positive', '2024-08-01'),
-('39', '2', 'Negative', '2024-08-02'),
-('40', '3', 'Positive', '2024-08-03'),
-('41', '4', 'Negative', '2024-08-04'),
-('42', '5', 'Positive', '2024-08-05'),
-('43', '6', 'Negative', '2024-08-06'),
-('44', '7', 'Positive', '2024-08-07'),
-('45', '8', 'Negative', '2024-08-08'),
-('46', '9', 'Positive', '2024-08-09'),
-('47', '10', 'Negative', '2024-08-10'),
-('48', '11', 'Positive', '2024-08-11'),
-('49', '12', 'Negative', '2024-08-12'),
-('50', '13', 'Positive', '2024-08-13'),
-('51', '14', 'Negative', '2024-08-14'),
-('52', '15', 'Positive', '2024-08-15'),
-('53', '16', 'Negative', '2024-08-16'),
-('54', '17', 'Positive', '2024-08-17'),
-('55', '18', 'Negative', '2024-08-18'),
-('56', '19', 'Positive', '2024-08-19'),
-('57', '20', 'Negative', '2024-08-20');
+('1', '1', 'Positive', '2024-08-01');

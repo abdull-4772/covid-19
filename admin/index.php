@@ -4,24 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="./public/css/style.css">
     <title>Hospital Admin Dashboard</title>
 </head>
 
 <body>
-    <?php require_once './partial/sidebarHead.php'; ?>
+    <?php require_once './views/partial/sidebarHead.php'; ?>
     <div class="dashmain">
         <div class="container">
             <h1>Admin Dashboard</h1>
 
             <div class="dashboard">
                 <div class="box">
-                    <h2>Total Users</h2>
+                    <h2>Total Patients</h2>
                     <p id="totalUsers"> <?php
-                                        require_once '../controllers/userController.php';
+                                        require_once './controllers/userController.php';
 
                                         $user_con = new userController;
-                                        $all_users = $user_con->readAll("user");
+                                        $all_users = $user_con->readAll("patient");
                                         $user_array = [];
 
                                         while ($row = $all_users->fetch_assoc()) {
@@ -37,12 +37,42 @@
                                         ?></p>
                 </div>
                 <div class="box">
-                    <h2>Total Patients</h2>
-                    <p id="totalPatients">0</p>
+                    <h2>Total Vaccine</h2>
+                    <p id="totalPatients"><?php
+                                            // require_once './controllers/userController.php';
+
+                                            $user_con = new userController;
+                                            $all_users = $user_con->readAll("listvaccine");
+                                            $user_array = [];
+
+                                            while ($row = $all_users->fetch_assoc()) {
+                                                $user_array[] = $row['id'];
+                                            }
+
+                                            if (is_array($user_array)) {
+                                                echo count($user_array);
+                                            } else {
+                                                echo "0";
+                                            }
+                                            ?></p>
                 </div>
                 <div class="box">
                     <h2>Total Hospitals</h2>
-                    <p id="totalHospitals">0</p>
+                    <p id="totalHospitals"><?php
+                                            require_once './controllers/reportController.php';
+                                            $report_con = new reportController;
+                                            $all_report = $report_con->getReportData();
+                                            $user_array = [];
+
+                                            while ($row = $all_report->fetch_assoc()) {
+                                                $user_array[] = $row['id'];
+                                            }
+                                            if (is_array($user_array)) {
+                                                echo count($user_array);
+                                            } else {
+                                                echo "0";
+                                            }
+                                            ?></p>
                 </div>
                 <div class="box">
                     <h2>Report Result</h2>
@@ -82,7 +112,7 @@
         </div> -->
         </div>
     </div>
-    <?php require_once './partial/sidebarFoot.php'; ?>
+    <?php require_once './views/partial/sidebarFoot.php'; ?>
 
     <script>
         // Example script to dynamically update counts (you would replace these with actual data from your database)

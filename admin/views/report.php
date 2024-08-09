@@ -113,10 +113,12 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Patient</th>
-                            <th>Result</th>
-                            <th>Hospital</th>
-                            <th>Result Date</th>
+                            <th>id</th>
+                            <th>Patient Name</th>
+                            <th>Hospital Name</th>
+                            <th>Viccine Name</th>
+                            <th>Dose Number</th>
+                            <th>Report Date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -130,10 +132,12 @@
                         echo '<tbody>';
                         foreach ($getData as $row) {
                             echo '<tr>';
-                            echo '<td>' . htmlspecialchars($row['user_name']) . '</td>';
-                            echo '<td>' . htmlspecialchars($row['result']) . '</td>';
-                            echo '<td>' . htmlspecialchars($row['hospital_name']) . '</td>';
-                            echo '<td>' . htmlspecialchars($row['result_date']) . '</td>';
+                            echo '<td>' . htmlspecialchars($row['id']) . '</td>';
+                            echo '<td>' . htmlspecialchars($row['p_name']) . '</td>';
+                            echo '<td>' . htmlspecialchars($row['h_name']) . '</td>';
+                            echo '<td>' . htmlspecialchars($row['vaccine_name']) . '</td>';
+                            echo '<td>' . htmlspecialchars($row['dose_number']) . '</td>';
+                            echo '<td>' . htmlspecialchars($row['created_at']) . '</td>';
                             echo '</tr>';
                         }
                         ?>
@@ -147,7 +151,7 @@
 
     <script>
         function exportReport(type) {
-            window.location.href = 'export.php?type=' + type;
+            window.location.href = './export/export.php?type=' + type;
         }
     </script>
 </body>

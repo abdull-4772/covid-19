@@ -53,7 +53,7 @@ require_once "../controllers/userController.php";
 
                 $id = $_GET['id'];
                 $userReadCont = new userController;
-                $getResult = $userReadCont->readOne("vaccination", "$id");
+                $getResult = $userReadCont->readOne("listvaccine", "$id");
                 $userId = "";
                 $userName = "";
                 if ($id !== "") {
@@ -100,21 +100,19 @@ require_once "../controllers/userController.php";
                     <th>id</th>
                    <th> vaccine_name</th>
                     <th>dose_number</th>
-                    <th>status</th>
                     <th>Edit / Delete</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 $users = new UserController;
-                $getUsers = $users->readAll("vaccination");
+                $getUsers = $users->readAll("listvaccine");
                 if ($getUsers !== false) {
                     while ($row = $getUsers->fetch_assoc()) {
                         echo '<tr>
                         <td>' . $row['id'] . '</td>
                         <td>' . $row['vaccine_name'] . '</td>
                         <td>' . $row['dose_number'] . '</td>
-                        <td>' . $row['status'] . '</td>
                         <td>
                             <a href="./edit/edit.php?id=' . $row['id'] . '" id="edit">Edit</a>
                             /

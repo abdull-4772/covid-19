@@ -30,63 +30,71 @@ CREATE TABLE IF NOT EXISTS hospital (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     address VARCHAR(255) NOT NULL,
-    location VARCHAR(255),
     contact_number VARCHAR(15),
     email VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create Appointment table
+-- Create "AAPOINTMENT" table
 CREATE TABLE IF NOT EXISTS appointment (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,
+    patient_id INT,
     hospital_id INT,
     appointment_date DATETIME NOT NULL,
     test_type ENUM('Covid Test', 'Vaccination') NOT NULL,
     status ENUM('Pending', 'Approved', 'Rejected') DEFAULT 'Pending',
-    FOREIGN KEY (user_id) REFERENCES patient(id),
+    FOREIGN KEY (patient_id) REFERENCES patient(id),
     FOREIGN KEY (hospital_id) REFERENCES hospital(id),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create Test Results table
+-- Create "LIST OF VACCINE" table for report
+CREATE TABLE IF NOT EXISTS listVaccine (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    vaccine_name VARCHAR(255),  
+    dose_number ENUM('First', 'Second', 'Booster'),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create "REPORT" table
+CREATE TABLE IF NOT EXISTS report (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    patient_id INT,
+    hospital_id INT,
+    vaccine_id INT,
+    status ENUM('Scheduled', 'Completed') DEFAULT 'Scheduled',
+    FOREIGN KEY (patient_id) REFERENCES patient(id),
+    FOREIGN KEY (hospital_id) REFERENCES hospital(id),
+    FOREIGN KEY (vaccine_id) REFERENCES listVaccine(id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+-- Create "TEST RESULT" table
 CREATE TABLE IF NOT EXISTS test_results (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,
+    patient_id INT,
     hospital_id INT,
     result ENUM('Positive', 'Negative', 'Pending') NOT NULL,
     result_date DATETIME,
-    FOREIGN KEY (user_id) REFERENCES patient(id),
+    FOREIGN KEY (patient_id) REFERENCES patient(id),
     FOREIGN KEY (hospital_id) REFERENCES hospital(id),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create Vaccination table
-CREATE TABLE IF NOT EXISTS vaccination (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,
-    hospital_id INT,
-    vaccine_name VARCHAR(100),
-    dose_number ENUM('First', 'Second', 'Booster'),
-    status ENUM('Scheduled', 'Completed') DEFAULT 'Scheduled',
-    FOREIGN KEY (user_id) REFERENCES patient(id),
-    FOREIGN KEY (hospital_id) REFERENCES hospital(id),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Create Tests table
+-- Create "TESTS" table
 CREATE TABLE IF NOT EXISTS Tests (
-    TestID INT AUTO_INCREMENT PRIMARY KEY,
-    PatientID INT,
-    TestDate DATE,
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    patient_id INT,
+    hospital_id INT,
+    testdate DATE,
     Result ENUM('Positive', 'Negative', 'Pending'),
-    HospitalID INT,
-    FOREIGN KEY (PatientID) REFERENCES patient(id),
-    FOREIGN KEY (HospitalID) REFERENCES hospital(id)
+    FOREIGN KEY (patient_id) REFERENCES patient(id),
+    FOREIGN KEY (hospital_id) REFERENCES hospital(id)
 );
 
--- Create HospitalApproval table
+-- Create "HOSPITAL APPROVAL" table
 CREATE TABLE IF NOT EXISTS HospitalApproval (
     ApprovalID INT AUTO_INCREMENT PRIMARY KEY,
     HospitalID INT,
