@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS appointment (
     appointment_date DATETIME NOT NULL,
     test_type ENUM('Covid Test', 'Vaccination') NOT NULL,
     status ENUM('Pending', 'Approved', 'Rejected') DEFAULT 'Pending',
-    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (user_id) REFERENCES patient(id),
     FOREIGN KEY (hospital_id) REFERENCES hospital(id),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS test_results (
     hospital_id INT,
     result ENUM('Positive', 'Negative', 'Pending') NOT NULL,
     result_date DATETIME,
-    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (user_id) REFERENCES patient(id),
     FOREIGN KEY (hospital_id) REFERENCES hospital(id),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS vaccination (
     vaccine_name VARCHAR(100),
     dose_number ENUM('First', 'Second', 'Booster'),
     status ENUM('Scheduled', 'Completed') DEFAULT 'Scheduled',
-    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (user_id) REFERENCES patient(id),
     FOREIGN KEY (hospital_id) REFERENCES hospital(id),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS Tests (
     TestDate DATE,
     Result ENUM('Positive', 'Negative', 'Pending'),
     HospitalID INT,
-    FOREIGN KEY (PatientID) REFERENCES user(id),
+    FOREIGN KEY (PatientID) REFERENCES patient(id),
     FOREIGN KEY (HospitalID) REFERENCES hospital(id)
 );
 
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS HospitalApproval (
 );
 
 -- Indexes for optimization
-CREATE INDEX idx_user_email ON user(email);
+CREATE INDEX idx_user_email ON patient(email);
 CREATE INDEX idx_hospital_email ON hospital(email);
 CREATE INDEX idx_appointments_user_id ON appointment(user_id);
 CREATE INDEX idx_appointments_hospital_id ON appointment(hospital_id);
