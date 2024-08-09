@@ -7,6 +7,7 @@
         <li><a href="./dashboard.php">Dashboard</a></li>
         <li><a href="./patient.php">Patient</a></li>
         <li><a href="./report.php">Report</a></li>
+        <li><a href="./list_vaccine.php">List of Vaccine</a></li>
         <li><a href="#reports">Reports</a></li>
         <li><a href="#logout">Logout</a></li>
     </ul>
