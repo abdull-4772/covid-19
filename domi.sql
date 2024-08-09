@@ -1,26 +1,13 @@
--- Hospital table domi data
-INSERT INTO `hospital`(`name`, `address`, `location`, `contact_number`, `email`, `password`, `created_at`) VALUES 
-('Greenwood Hospital', '123 Elm St', 'Downtown', '+1234567890', 'contact@greenwoodhospital.com', 'password123', '2024-01-15'),
-('Lakeside Medical Center', '456 Lakeview Dr', 'Lakeside', '+1234567891', 'info@lakesidemedical.com', 'password234', '2024-02-20'),
-('Oakwood Clinic', '789 Oak St', 'Suburbia', '+1234567892', 'support@oakwoodclinic.com', 'password345', '2024-03-10'),
-('Sunnydale Hospital', '101 Main St', 'Sunnydale', '+1234567893', 'hello@sunnydalehospital.com', 'password456', '2024-04-25'),
-('Riverbank Medical Facility', '202 River Rd', 'Riverbank', '+1234567894', 'contact@riverbankmedical.com', 'password567', '2024-05-30'),
-('Westfield Health Center', '303 Westfield Ave', 'Westfield', '+1234567895', 'info@westfieldhealth.com', 'password678', '2024-06-15'),
-('Cedar Grove Hospital', '404 Cedar Dr', 'Cedar Grove', '+1234567896', 'support@cedargrovehospital.com', 'password789', '2024-07-10'),
-('Pine Hill Clinic', '505 Pine St', 'Pine Hill', '+1234567897', 'hello@pinehillclinic.com', 'password890', '2024-08-05'),
-('Elm Street Medical Center', '606 Elm St', 'Elm Street', '+1234567898', 'contact@elmstreetmedical.com', 'password901', '2024-09-20'),
-('Maplewood Hospital', '707 Maple Rd', 'Maplewood', '+1234567899', 'info@maplewoodhospital.com', 'password012', '2024-10-10'),
-('Broadway Clinic', '808 Broadway', 'Broadway', '+1234567800', 'support@broadwayclinic.com', 'password123', '2024-11-25'),
-('Harborview Medical Center', '909 Harborview Dr', 'Harborview', '+1234567801', 'hello@harborviewmedical.com', 'password234', '2024-12-15'),
-('Silver Creek Hospital', '1010 Silver Creek Ln', 'Silver Creek', '+1234567802', 'contact@silvercreekhospital.com', 'password345', '2024-01-30'),
-('Highland Health Center', '1111 Highland Ave', 'Highland', '+1234567803', 'info@highlandhealth.com', 'password456', '2024-02-28'),
-('Downtown Clinic', '1212 Downtown St', 'Downtown', '+1234567804', 'support@downtownclinic.com', 'password567', '2024-03-15'),
-('Central Medical Facility', '1313 Central Rd', 'Central', '+1234567805', 'hello@centralmedical.com', 'password678', '2024-04-20'),
-('Grandview Hospital', '1414 Grandview Dr', 'Grandview', '+1234567806', 'contact@grandviewhospital.com', 'password789', '2024-05-10'),
-('Sunnybrook Clinic', '1515 Sunnybrook Ln', 'Sunnybrook', '+1234567807', 'info@sunnybrookclinic.com', 'password890', '2024-06-25'),
-('Valley Forge Medical Center', '1616 Valley Forge Rd', 'Valley Forge', '+1234567808', 'support@valleyforgemedical.com', 'password901', '2024-07-30'),
-('Evergreen Hospital', '1717 Evergreen St', 'Evergreen', '+1234567809', 'hello@evergreenhospital.com', 'password012', '2024-08-15'),
-('Riverside Clinic', '1818 Riverside Ave', 'Riverside', '+1234567810', 'contact@riversideclinic.com', 'password123', '2024-09-05');
+-- Hospital table data
+INSERT INTO `hospital`(`name`, `address`, `contact_number`, `email`, `password`, `created_at`) VALUES 
+('Greenwood Hospital', '123 Elm St', '+1234567890', 'contact@greenwoodhospital.com', 'password123', '2024-01-15'),
+('Lakeside Medical Center', '456 Lakeview Dr', '+1234567891', 'info@lakesidemedical.com', 'password234', '2024-02-20'),
+('Oakwood Clinic', '789 Oak St', '+1234567892', 'support@oakwoodclinic.com', 'password345', '2024-03-10'),
+('Sunnydale Hospital', '101 Main St', '+1234567893', 'hello@sunnydalehospital.com', 'password456', '2024-04-25'),
+('Riverbank Medical Facility', '202 River Rd', '+1234567894', 'contact@riverbankmedical.com', 'password567', '2024-05-30'),
+('Westfield Health Center', '303 Westfield Ave', '+1234567895', 'info@westfieldhealth.com', 'password678', '2024-06-15'),
+('Cedar Grove Hospital', '404 Cedar Dr', '+1234567896', 'support@cedargrovehospital.com', 'password789', '2024-07-10'),
+('Pine Hill Clinic', '505 Pine St', '+1234567897', 'hello@pinehillclinic.com', 'password890', '2024-08-05'),
 
 
 -- User table domi data 

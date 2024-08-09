@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS HospitalApproval (
 -- Indexes for optimization
 CREATE INDEX idx_user_email ON patient(email);
 CREATE INDEX idx_hospital_email ON hospital(email);
-CREATE INDEX idx_appointments_user_id ON appointment(user_id);
+CREATE INDEX idx_appointments_user_id ON appointment(patient_id);
 CREATE INDEX idx_appointments_hospital_id ON appointment(hospital_id);
 CREATE INDEX idx_tests_user_id ON Tests(PatientID);
 CREATE INDEX idx_tests_hospital_id ON Tests(HospitalID);
