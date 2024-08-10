@@ -25,23 +25,47 @@
         </div>
         <div class="content my-4">
             <h2>Request Appointment</h2>
-            <form action="requestAppointment.php" method="post">
-                <!-- Appointment request form fields -->
+
+            <?php if (isset($_GET['status']) && $_GET['status'] === 'success'): ?>
+                <div class="alert alert-success">Appointment successfully booked!</div>
+            <?php elseif (isset($_GET['status']) && $_GET['status'] === 'error'): ?>
+                <div class="alert alert-danger">Failed to book the appointment. Please try again.</div>
+            <?php endif; ?>
+
+            <form action="../controllers/HospitalAppointmentController.php" method="post">
+                <!-- Assuming patient_id is passed via session -->
+                <input type="hidden" name="patient_id" value="<?php echo $_SESSION['patient_id']; ?>" />
+
                 <div class="form-group">
                     <label for="hospital">Select Hospital</label>
                     <select class="form-control" id="hospital" name="hospital">
-                        <option value="hospital1">Hospital 1</option>
-                        <option value="hospital2">Hospital 2</option>
-                        <option value="hospital3">Hospital 3</option>
+                        <?php
+                        // Populate the hospital dropdown from the database
+                        require_once __DIR__ . '/../config/Database.php';
+                        $db = new Database();
+                        $conn = $db->getConnection();
+                        $query = "SELECT id, name FROM hospital";
+                        $result = $conn->query($query);
+
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
+                        }
+
+                        $db->closeConnection();
+                        ?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="test_type">Select Type</label>
+                    <select class="form-control" id="test_type" name="test_type">
+                        <option value="Consultation">Consultation</option>
+                        <option value="Treatment">Treatment</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="appointmentDate">Appointment Date</label>
                     <input type="date" class="form-control" id="appointmentDate" name="appointment_date" required>
-                </div>
-                <div class="form-group">
-                    <label for="appointmentTime">Appointment Time</label>
-                    <input type="time" class="form-control" id="appointmentTime" name="appointment_time" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Request Appointment</button>
             </form>
