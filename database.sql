@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS test_results (
 );
 
 -- Create "TESTS" table
-CREATE TABLE IF NOT EXISTS Tests (
+CREATE TABLE IF NOT EXISTS tests (
     id INT AUTO_INCREMENT PRIMARY KEY,
     patient_id INT,
     hospital_id INT,
@@ -106,12 +106,12 @@ CREATE TABLE IF NOT EXISTS HospitalApproval (
 );
 
 -- Indexes for optimization
-CREATE INDEX idx_user_email ON patient(email);
+CREATE INDEX idx_patient_email ON patient(email);
 CREATE INDEX idx_hospital_email ON hospital(email);
 CREATE INDEX idx_appointments_user_id ON appointment(patient_id);
 CREATE INDEX idx_appointments_hospital_id ON appointment(hospital_id);
-CREATE INDEX idx_tests_user_id ON Tests(PatientID);
-CREATE INDEX idx_tests_hospital_id ON Tests(HospitalID);
+CREATE INDEX idx_tests_patient_id ON tests(patient_id);
+CREATE INDEX idx_tests_hospital_id ON tests(hospital_id);
 
 -- Indexes on hospital name and address for faster search
 CREATE INDEX idx_hospital_name ON hospital(name);
