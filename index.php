@@ -11,8 +11,8 @@
           <p class="message">Access the hospital administration panel. Please login with your hospital credentials.</p>
         </div>
         <div class="actions">
-          <a href="./hospital/views/register.php" class="register" type="button">Register</a>
-          <a href="./hospital/views/login.php" class="login" type="button">Login</a>
+          <a href="./hospital/views/register.php" class="register">Register</a>
+          <a href="./hospital/views/login.php" class="login">Login</a>
         </div>
       </div>
     </div>
@@ -23,8 +23,8 @@
           <p class="message">Access your patient account. Please login to view your health records.</p>
         </div>
         <div class="actions">
-          <button class="register" type="button">Register</button>
-          <button class="login" type="button">Login</button>
+        <a href="./patient/views/register.php" class="register">Register</a>
+        <a href="./patient/views/login.php" class="login">Login</a>
         </div>
       </div>
     </div>

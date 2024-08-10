@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../public/css/custom-style.css">
 </head>
+
 <body>
     <div class="d-flex">
         <div class="sidebar">
@@ -23,24 +25,31 @@
         </div>
         <div class="content my-4">
             <h2>Search Hospitals</h2>
-            <form action="searchHospitals.php" method="get">
+            <form action="../controllers/searchHospital.php" method="get">
                 <div class="form-group">
                     <label for="searchQuery">Search Hospitals</label>
-                    <input type="text" class="form-control" id="searchQuery" name="query" placeholder="Enter location or hospital name" value="<?= htmlspecialchars($_GET['query'] ?? '', ENT_QUOTES) ?>">
+                    <input type="text" class="form-control" id="searchQuery" name="query" placeholder="Enter location or hospital name" value="<?= isset($_GET['query']) ? htmlspecialchars($_GET['query']) : ''; ?>">
                 </div>
                 <button type="submit" class="btn btn-primary">Search</button>
             </form>
+
             <h3>Available Hospitals</h3>
-            <ul class="list-unstyled">
-                <?php if (!empty($hospitals)): ?>
+            <?php if (!empty($hospitals)): ?>
+                <ul class="list-unstyled">
                     <?php foreach ($hospitals as $hospital): ?>
-                        <li><?= htmlspecialchars($hospital['name']) ?> - <?= htmlspecialchars($hospital['address']) ?></li>
+                        <li class="mb-2">
+                            <div class="hospital-item">
+                                <strong><?= htmlspecialchars($hospital['name']) ?></strong> - <?= htmlspecialchars($hospital['address']) ?>
+                                <a href="./requestAppointment.php?hospital_id=<?= $hospital['id']; ?>" class="btn btn-secondary ml-3">Book Appointment</a>
+                            </div>
+                        </li>
                     <?php endforeach; ?>
-                <?php else: ?>
-                    <li>No hospitals found.</li>
-                <?php endif; ?>
-            </ul>
+                </ul>
+            <?php else: ?>
+                <p>No hospitals found.</p>
+            <?php endif; ?>
         </div>
     </div>
 </body>
+
 </html>

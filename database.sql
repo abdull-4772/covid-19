@@ -103,3 +103,7 @@ CREATE INDEX idx_appointments_user_id ON appointment(user_id);
 CREATE INDEX idx_appointments_hospital_id ON appointment(hospital_id);
 CREATE INDEX idx_tests_user_id ON Tests(PatientID);
 CREATE INDEX idx_tests_hospital_id ON Tests(HospitalID);
+
+-- Indexes on hospital name and address for faster search
+CREATE INDEX idx_hospital_name ON hospital(name);
+CREATE INDEX idx_hospital_address ON hospital(address);
