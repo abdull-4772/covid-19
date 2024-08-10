@@ -54,7 +54,7 @@ require_once "../controllers/userController.php";
 
                 $id = $_GET['id'];
                 $userReadCont = new userController;
-                $getResult = $userReadCont->readOne("user", "$id");
+                $getResult = $userReadCont->readOne("patient", "$id");
                 $userId = "";
                 $userName = "";
                 if ($id !== "") {
@@ -128,7 +128,7 @@ require_once "../controllers/userController.php";
                         <td>
                             <a href="./edit/edit.php?id=' . $row['id'] . '" id="edit">Edit</a>
                             /
-                            <a href="./users.php?id=' . $row['id'] . '" id="delete" >Delete</a>
+                            <a href="./patient.php?id=' . $row['id'] . '" id="delete" >Delete</a>
                         </td>
                         </tr>';
                     }
@@ -182,7 +182,7 @@ require_once "../controllers/userController.php";
             deletedAlertBox.style.top = "40%";
             setTimeout(() => {
                 removeAlert(deletedAlertBox);
-            }, 2100);
+            }, 2000);
         }
 
         function showUpdatedAlert() {
@@ -191,7 +191,7 @@ require_once "../controllers/userController.php";
             updatedAlertBox.style.top = "40%";
             setTimeout(() => {
                 removeAlert(updatedAlertBox);
-            }, 2100);
+            }, 2000);
         }
 
         function removeAlert(alertBox) {
