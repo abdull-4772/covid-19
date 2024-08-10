@@ -36,6 +36,7 @@ class hospitalModel
         $this->db->closeConnection();
         exit;
     }
+
     function getPatientAppointmentApprovel()
     {
         $query = "SELECT 
@@ -59,6 +60,7 @@ class hospitalModel
         $this->db->closeConnection();
         exit;
     }
+
     function updateAppointmentApprovel($id, $status)
     {
         $query = "UPDATE `appointment` SET `status`='$status' WHERE `id`='$id'";

@@ -59,9 +59,9 @@
                 <div class="box">
                     <h2>Total Hospitals</h2>
                     <p id="totalHospitals"><?php
-                                            require_once './controllers/reportController.php';
-                                            $report_con = new reportController;
-                                            $all_report = $report_con->getReportData();
+                                            require_once './controllers/userController.php';
+                                            $report_con = new userController;
+                                            $all_report = $report_con->readAll("hospital");
                                             $user_array = [];
 
                                             while ($row = $all_report->fetch_assoc()) {
@@ -76,7 +76,21 @@
                 </div>
                 <div class="box">
                     <h2>Report Result</h2>
-                    <p id="vaccineAvailability">0</p>
+                    <p id="vaccineAvailability"><?php
+                                            require_once './controllers/userController.php';
+                                            $vaccine_con = new userController;
+                                            $all_vaccine = $vaccine_con->readAll("listvaccine");
+                                            $vaccine_array = [];
+
+                                            while ($row = $all_vaccine->fetch_assoc()) {
+                                                $vaccine_array[] = $row['id'];
+                                            }
+                                            if (is_array($vaccine_array)) {
+                                                echo count($vaccine_array);
+                                            } else {
+                                                echo "0";
+                                            }
+                                            ?></p>
                 </div>
             </div>
             <!-- 
