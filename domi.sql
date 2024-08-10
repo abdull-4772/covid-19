@@ -36,7 +36,9 @@ INSERT INTO `hospital`(`name`, `address`, `contact_number`, `email`, `password`,
 INSERT INTO appointment (patient_id, hospital_id, appointment_date, test_type, status) VALUES
 (1, 1, '2024-08-12', 'Blood Test', 'Pending'),
 (2, 2, '2024-08-13', 'X-Ray', 'Approved'),
-(3, 3, '2024-08-14', 'MRI', 'Rejected');
+(3, 3, '2024-08-14', 'MRI', 'Rejected'),
+(4, 4, '2024-08-12', 'old Test', 'Pending'),
+(5, 5, '2024-08-12', 'new Test', 'Pending');
 
 
 -- test_results table domi data 

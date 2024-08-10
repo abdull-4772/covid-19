@@ -176,7 +176,7 @@ a#delete:hover {
 }
 
 .btn:hover {
-    background-color: #007bff;
+    background-color: #005bff;
 }
 
 /* alert box */
@@ -244,6 +244,15 @@ a#delete:hover {
 }
 
 .cancelBtn:hover {
+    background-color: red;
+}
+.cancelApprove,
+.cancelReject {
+    background-color: #d9534f;
+}
+
+.cancelApprove:hover,
+.cancelReject:hover {
     background-color: red;
 }
 

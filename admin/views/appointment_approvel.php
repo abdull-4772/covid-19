@@ -77,62 +77,73 @@
         $reject = $_POST['reject'];
         $hospitalController = new hospitalController;
         $hospitalController->updateAppointmentApprovel($id, $reject);
+        echo "<script>
+        document.addEventListener('DOMContentLoaded', function() {
+        // removeFromPost();
+        });
+        </script>";
+    }else if(isset($_POST['approve'])){
+        $id =  $_POST['id'];
+        $reject = $_POST['approve'];
+        $hospitalController = new hospitalController;
+        $hospitalController->updateAppointmentApprovel($id, $reject);
+        echo "<script>
+        document.addEventListener('DOMContentLoaded', function() {
+        // removeFromPost();
+        });
+        </script>";
     }
     ?>
-
     <div id="customAlertOverlay" class="custom-overlay">
 
-        <!-- Aproved Alert Box  -->
+        <!--========================= Approved Alert Box =========================-->
         <?php
-        if (isset($_GET['approve'])) {
+        if (isset($_GET['approve']) && isset($_GET['app_name'])) {
             $approve_id = $_GET['approve'];
+            $approve_n = $_GET['app_name'];
             echo "<script>
             document.addEventListener('DOMContentLoaded', function() {
-                closeDeleteBox()
-                showDeletedAlert();
-                });
-                </script>";
+            approveFunc();
+            });
+            </script>";
         }
         ?>
         <div id="approveConfirmBox" class="custom-alert-box">
-            <h2>Confirm for Aprove</h2>
-            <p>Are you sure you want to Approve <?php if ($userName != "") {
-                                                    echo $userName;
-                                                } ?></p>
-            <form action="./delete/delete.php" method="POST">
-                <input type="text" name="id" value="<?php echo $approve_id; ?>" hidden>
-                <input type="text" name="approve" value="Approved" hidden>
+            <h2>Confirm for Approval</h2>
+            <p>Are you sure you want to approve <b><?php echo !empty($approve_n) ? htmlspecialchars($approve_n) : ''; ?></b>?</p>
+            <form action="./appointment_approvel.php" method="POST">
+                <input type="hidden" name="id" value="<?php echo htmlspecialchars($approve_id); ?>">
+                <input type="hidden" name="approve" value="Approved">
                 <input type="submit" value="Confirm" class="btn confirmBtn">
-                <button type="button" class="btn cancelBtn" onclick="cancelFormSubmission(event)">Cancel</button>
+                <button type="button" class="btn cancelApprove" onclick="cancelFormSubmission(event);">Cancel</button>
             </form>
         </div>
-        <!-- Aproved Alert Box end -->
+        <!--============================== Approved Alert Box end =========================-->
 
-        <!-- Rejected Alert Box  -->
+
+        <!--============================== Rejected Alert Box ==============================-->
         <?php
-        if (isset($_GET['reject'])) {
+        if (isset($_GET['reject']) && isset($_GET['rej_name'])) {
             $reject_id = $_GET['reject'];
+            $reject_n = $_GET['rej_name'];
             echo "<script>
             document.addEventListener('DOMContentLoaded', function() {
-                closeDeleteBox()
-                showDeletedAlert();
-                });
-                </script>";
+            rejectFunc();
+            });
+          </script>";
         }
         ?>
         <div id="rejectConfirmBox" class="custom-alert-box">
-            <h2>Confirm for Aprove</h2>
-            <p>Are you sure you want to Approve <?php if ($userName != "") {
-                                                    echo $userName;
-                                                } ?></p>
-            <form action="./delete/delete.php" method="POST">
-                <input type="text" name="id" value="<?php echo $reject_id; ?>" hidden>
-                <input type="text" name="reject" value="Rejected" hidden>
+            <h2>Confirm for Rejection</h2>
+            <p>Are you sure you want to reject <b><?php echo !empty($reject_n) ? htmlspecialchars($reject_n) : ''; ?></b>?</p>
+            <form action="./appointment_approvel.php" method="POST">
+                <input type="hidden" name="id" value="<?php echo htmlspecialchars($reject_id); ?>">
+                <input type="hidden" name="reject" value="Rejected">
                 <input type="submit" value="Confirm" class="btn confirmBtn">
-                <button type="button" class="btn cancelBtn" onclick="cancelFormSubmission(event)">Cancel</button>
+                <button type="button" class="btn cancelReject" onclick="cancelFormSubmission(event);">Cancel</button>
             </form>
         </div>
-        <!-- Rejected Alert Box end -->
+        <!--========================= Rejected Alert Box end =========================-->
     </div>
 
     <div class="covid-report-container">
@@ -142,8 +153,7 @@
         <div class="covid-report-content">
             <section class="covid-report-section">
                 <h3>Test Results</h3>
-                <p>Details of the test results.</p>
-
+                <br>
                 <table>
                     <thead>
                         <tr>
@@ -153,12 +163,11 @@
                             <th>Test Type</th>
                             <th>Status</th>
                             <th>Appointment Date</th>
-                            <th>Approve Or Reject</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        // Assuming $getData contains the report data
                         require_once '../controllers/hospitalController.php';
                         $reportController = new hospitalController;
                         $getData = $reportController->getPatientAppointmentApprovel();
@@ -170,13 +179,13 @@
                                     <td>' . htmlspecialchars($row['p_name']) . '</td>
                                     <td>' . htmlspecialchars($row['h_name']) . '</td>
                                     <td>' . htmlspecialchars($row['test_type']) . '</td>
-                                    <td style=" background-color:#FF9800; color:white;">' . htmlspecialchars($row['status']) . '</td>
+                                    <td style="background-color:#FF9800; color:white;">' . htmlspecialchars($row['status']) . '</td>
                                     <td>' . htmlspecialchars($row['appointment_date']) . '</td>
-                                      <td>
-                                            <a href="?approve=' . $row['id'] . '" >Approve</a>
-                                            Or
-                                            <a href="?reject=' . $row['id'] . '" >Reject</a>
-                                        </td>
+                                    <td>
+                                        <a href="./appointment_approvel.php?approve=' . htmlspecialchars($row['id']) . '&app_name=' . urlencode($row['p_name']) . '">Approve</a>
+                                        Or
+                                        <a href="./appointment_approvel.php?reject=' . htmlspecialchars($row['id']) . '&rej_name=' . urlencode($row['p_name']) . '">Reject</a>
+                                    </td>
                                     </tr>';
                             } else if (htmlspecialchars($row['status']) == "Approved") {
                                 echo '<tr>
@@ -186,9 +195,9 @@
                                     <td>' . htmlspecialchars($row['test_type']) . '</td>
                                     <td style="background-color:green; color:white;">' . htmlspecialchars($row['status']) . '</td>
                                     <td>' . htmlspecialchars($row['appointment_date']) . '</td>
-                                      <td>
-                                        <a href="?reject=' . $row['id'] . '" >Reject</a>
-                                        </td>
+                                    <td>
+                                        <a href="./appointment_approvel.php?reject=' . htmlspecialchars($row['id']) . '&rej_name=' . urlencode($row['p_name']) . '">Reject</a>
+                                    </td>
                                     </tr>';
                             } else if (htmlspecialchars($row['status']) == "Rejected") {
                                 echo '<tr>
@@ -199,7 +208,7 @@
                                     <td style="background-color:red; color:white;">' . htmlspecialchars($row['status']) . '</td>
                                     <td>' . htmlspecialchars($row['appointment_date']) . '</td>
                                     <td>
-                                      <a href="?approve=' . $row['id'] . '" >Approve</a>
+                                        <a href="./appointment_approvel.php?approve=' . htmlspecialchars($row['id']) . '&app_name=' . urlencode($row['p_name']) . '">Approve</a>
                                     </td>
                                     </tr>';
                             }
@@ -212,6 +221,62 @@
     </div>
 
     <?php require_once './partial/sidebarFoot.php'; ?>
+    <script>
+        // Showing Alert Boxes
+        let alert_background = document.querySelector(".custom-overlay");
+        let approveBox = document.querySelector("#approveConfirmBox");
+        let rejectBox = document.querySelector("#rejectConfirmBox");
+
+        // Cancel the Confirmation
+        function cancelFormSubmission(event) {
+            event.preventDefault(); // Prevent form submission
+            removeBox();
+            setTimeout(() => {
+                removeDeley();
+            }, 100)
+        }
+
+        function removeFromPost() {
+            removeBox();
+            setTimeout(() => {
+                removeDeley();
+            }, 100)
+        }
+
+        function approveFunc() {
+            alert_background.style.display = "block";
+            setTimeout(() => {
+                addDeley_app();
+            }, 100)
+        }
+
+        function rejectFunc() {
+            alert_background.style.display = "block";
+            setTimeout(() => {
+                addDeley_rej();
+            }, 100)
+        }
+
+        function addDeley_app() {
+            approveBox.style.top = "40%";
+        }
+
+        function addDeley_rej() {
+            rejectBox.style.top = "40%";
+        }
+
+        function removeBox() {
+            rejectBox.style.top = "-120%";
+            approveBox.style.top = "-120%";
+            setTimeout(() => {
+                removeDeley();
+            }, 100)
+        }
+
+        function removeDeley() {
+            alert_background.style.display = "none";
+        }
+    </script>
 </body>
 
 </html>
