@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $phonenbr = $_POST['phonenumber'];
 
     $userUpdate = new userController;
-    $getUpdateResult = $userUpdate->update("user", $id, $name, $email, $password, $age, $gender, $address, $phonenbr);
+    $getUpdateResult = $userUpdate->update("patient", $id, $name, $email, $password, $age, $gender, $address, $phonenbr);
     if ($getUpdateResult == true) {
         header("Location: ../users.php?status=edited");
     } else {

@@ -113,7 +113,7 @@ require_once "../controllers/userController.php";
             <tbody>
                 <?php
                 $users = new UserController;
-                $getUsers = $users->readAll("user");
+                $getUsers = $users->readAll("patient");
                 if ($getUsers !== false) {
                     while ($row = $getUsers->fetch_assoc()) {
                         echo '<tr>

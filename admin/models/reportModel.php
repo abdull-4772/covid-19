@@ -13,15 +13,26 @@ class reportModel
 
     public function getReportData()
     {
+        // $query = "SELECT 
+        //             test_results.id, 
+        //             patient.name AS user_name, 
+        //             test_results.result, 
+        //             test_results.result_date, 
+        //             hospital.name AS hospital_name 
+        //             FROM test_results
+        //             INNER JOIN user ON test_results.patient_id = patient.id
+        //             INNER JOIN hospital ON test_results.hospital_id = hospital.id";
         $query = "SELECT 
-                    test_results.id, 
-                    user.name AS user_name, 
-                    test_results.result, 
-                    test_results.result_date, 
-                    hospital.name AS hospital_name 
-                  FROM test_results
-                  INNER JOIN user ON test_results.user_id = user.id
-                  INNER JOIN hospital ON test_results.hospital_id = hospital.id";
+                    report.id,
+                    patient.name AS p_name,
+                    hospital.name AS h_name,
+                    listvaccine.vaccine_name,
+                    listvaccine.dose_number,
+                    listvaccine.created_at
+                    FROM `report`
+                    INNER JOIN patient ON report.user_id = patient.id
+                    INNER JOIN hospital ON report.hospital_id = hospital.id
+                    INNER JOIN listvaccine ON report.vaccine_id = listvaccine.id;";
 
         $result = mysqli_query($this->conn, $query);
         if (!$result) {

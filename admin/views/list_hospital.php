@@ -93,26 +93,31 @@ require_once "../controllers/userController.php";
 
 
     <div class="main">
-        <h1 id="hover">list of Vaccines</h1>
+        <h1 id="hover">list of Hospitals</h1>
         <table>
             <thead>
                 <tr>
                     <th>id</th>
-                   <th> vaccine_name</th>
-                    <th>dose_number</th>
-                    <th>Edit / Delete</th>
+                    <th>name</th>
+                    <th>address</th>
+                    <th>contact_number</th>
+                    <th>email</th>
+                    <th>created_at</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 $users = new UserController;
-                $getUsers = $users->readAll("listvaccine");
+                $getUsers = $users->readAll("hospital");
                 if ($getUsers !== false) {
                     while ($row = $getUsers->fetch_assoc()) {
                         echo '<tr>
                         <td>' . $row['id'] . '</td>
-                        <td>' . $row['vaccine_name'] . '</td>
-                        <td>' . $row['dose_number'] . '</td>
+                        <td>' . $row['name'] . '</td>
+                        <td>' . $row['address'] . '</td>
+                        <td>' . $row['contact_number'] . '</td>
+                        <td>' . $row['email'] . '</td>
+                        <td>' . $row['created_at'] . '</td>
                         <td>
                             <a href="./edit/edit.php?id=' . $row['id'] . '" id="edit">Edit</a>
                             /
@@ -132,8 +137,6 @@ require_once "../controllers/userController.php";
     <?php include_once "./partial/sidebarFoot.php"; ?>
 
     <script>
-      
-
         // Showing Alert Boxes
         let alertBackground = document.querySelector("#customAlertOverlay");
         let deletedAlertBox = document.querySelector("#deletedAlertBox");

@@ -6,13 +6,21 @@ if (isset($_GET['type'])) {
 
 function exportData($type)
 {
-    // Example data, replace with your actual data
+    require_once '../../controllers/reportController.php';
     $data = [
-        ['ID', 'Name', 'Date', 'Result'],
-        [1, 'John Doe', '2021-01-01', 'Negative'],
-        [2, 'Jane Smith', '2021-01-02', 'Positive'],
-        // Add more rows as needed
+        ['id', 'Patient', 'Hospital', 'Vaccine', 'Dose'],
     ];
+
+    $reportController = new reportController;
+    $getData = $reportController->getReportData();
+    // Table body
+    foreach ($getData as $row) {
+        $data[]= [ htmlspecialchars($row['id']),
+        htmlspecialchars($row['p_name']), 
+        htmlspecialchars($row['h_name']),
+        htmlspecialchars($row['vaccine_name']),
+        htmlspecialchars($row['dose_number'])];
+    }
 
     $filename = "report_$type.xls";
 

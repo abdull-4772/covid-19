@@ -54,7 +54,7 @@ body {
     color: white;
     display: block;
 }
-
+.sidebar-menu li .active,
 .sidebar-menu li a:hover {
     background-color: #006bff;
     border-radius: 4px;
