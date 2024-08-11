@@ -18,13 +18,13 @@ class hospitalModel
                     report.id,
                     patient.name AS p_name,
                     hospital.name AS h_name,
-                    listvaccine.vaccine_name,
-                    listvaccine.dose_number,
-                    listvaccine.created_at
+                    list_of_vaccine.vaccine_name,
+                    list_of_vaccine.dose_number,
+                    list_of_vaccine.created_at
                     FROM `report`
-                    INNER JOIN patient ON report.user_id = patient.id
+                    INNER JOIN patient ON report.patient_id = patient.id
                     INNER JOIN hospital ON report.hospital_id = hospital.id
-                    INNER JOIN listvaccine ON report.vaccine_id = listvaccine.id;";
+                    INNER JOIN list_of_vaccine ON report.vaccine_id = list_of_vaccine.id;";
 
         $result = mysqli_query($this->conn, $query);
         if (!$result) {
@@ -43,7 +43,7 @@ class hospitalModel
                 appointment.id,
                 patient.name AS p_name,
                 hospital.name AS h_name,
-                appointment.test_type,
+                appointment.reason,
                 appointment.status,
                 appointment.appointment_date
                 FROM `appointment`

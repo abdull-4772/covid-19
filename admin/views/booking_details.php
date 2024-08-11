@@ -7,14 +7,14 @@ require_once "../controllers/userController.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>List of Vaccines</title>
+    <title>Booking Details</title>
 
     <link rel="stylesheet" href="../public/css/style.css">
 </head>
 
 <body>
     <?php include_once "./partial/sidebarHead.php"; ?>
-    <!--========================= Alerts box Start =========================-->
+    <!--======================== Alerts box Start ========================-->
     <div id="customAlertOverlay" class="custom-overlay">
         <?php
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -44,16 +44,16 @@ require_once "../controllers/userController.php";
             <h2>Vaccine Updated</h2>
             <p>This Vaccine has been successfully updated.</p>
         </div>
-        <!--=========================== Alerts Box end ===========================-->
+        <!--======================== Alerts Box end ========================-->
 
-        <!--========================= Delete a user Box start =========================-->
+        <!--============================ Delete a user Box start ====================-->
         <?php
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             if (isset($_GET['id'])) {
 
                 $id = $_GET['id'];
                 $userReadCont = new userController;
-                $getResult = $userReadCont->readOne("List_of_Vaccine", "$id");
+                $getResult = $userReadCont->readOne("hospital", "$id");
                 $userId = "";
                 $userName = "";
                 if ($id !== "") {
@@ -64,10 +64,10 @@ require_once "../controllers/userController.php";
                 }
                 if ($id == $userId) {
                     echo "<script>
-                document.addEventListener('DOMContentLoaded', function() {
+                    document.addEventListener('DOMContentLoaded', function() {
                     confirmDelete();
-                });
-                </script>";
+                    });
+                    </script>";
                 }
             }
         }
@@ -86,42 +86,48 @@ require_once "../controllers/userController.php";
                 <input type="submit" value="Confirm" class="btn confirmBtn">
             </form>
         </div>
-        <!--========================= Delete a user Box end ==============================-->
+        <!--==================== Delete a user Box end ====================-->
     </div>
 
 
     <div class="main">
-        <h1 id="hover">list of Vaccines</h1>
+        <h1 id="hover">Booking Details</h1>
         <table>
             <thead>
                 <tr>
                     <th>id</th>
-                   <th> vaccine_name</th>
-                    <th>dose_number</th>
-                    <th>Edit / Delete</th>
+                    <th>name</th>
+                    <th>address</th>
+                    <th>contact_number</th>
+                    <th>email</th>
+                    <th>created_at</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 $users = new UserController;
-                $getUsers = $users->readAll("List_of_Vaccine");
+                $getUsers = $users->readAll("hospital");
                 if ($getUsers !== false) {
                     while ($row = $getUsers->fetch_assoc()) {
                         echo '<tr>
                         <td>' . $row['id'] . '</td>
-                        <td>' . $row['vaccine_name'] . '</td>
-                        <td>' . $row['dose_number'] . '</td>
+                        <td>' . $row['name'] . '</td>
+                        <td>' . $row['address'] . '</td>
+                        <td>' . $row['contact_number'] . '</td>
+                        <td>' . $row['email'] . '</td>
+                        <td>' . $row['created_at'] . '</td>
                         <td>
                             <a href="./edit/edit.php?id=' . $row['id'] . '" id="edit">Edit</a>
                             /
-                            <a href="./list_vaccine.php?id=' . $row['id'] . '" id="delete" >Delete</a>
+                            <a href="./list_hospital.php?id=' . $row['id'] . '" id="delete" >Delete</a>
                         </td>
                         </tr>';
                     }
                 } else {
                     echo '<tr>
-                <td colspan="10"> User not found </td>
-                </tr>';
+                        <td colspan="10"> User not found </td>
+                        </tr>';
                 }
                 ?>
             </tbody>
@@ -130,8 +136,6 @@ require_once "../controllers/userController.php";
     <?php include_once "./partial/sidebarFoot.php"; ?>
 
     <script>
-      
-
         // Showing Alert Boxes
         let alertBackground = document.querySelector("#customAlertOverlay");
         let deletedAlertBox = document.querySelector("#deletedAlertBox");

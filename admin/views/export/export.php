@@ -6,12 +6,12 @@ if (isset($_GET['type'])) {
 
 function exportData($type)
 {
-    require_once '../../controllers/reportController.php';
+    require_once '../../controllers/hospitalController.php';
     $data = [
         ['id', 'Patient', 'Hospital', 'Vaccine', 'Dose'],
     ];
 
-    $reportController = new reportController;
+    $reportController = new hospitalController;
     $getData = $reportController->getReportData();
     // Table body
     foreach ($getData as $row) {
