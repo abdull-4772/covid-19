@@ -1,36 +1,64 @@
 <?php
-
-require_once '../controllers/HospitalAppointmentController.php';
+require_once __DIR__ . '/../config/Database.php';
+require_once __DIR__ . '/../models/HospitalAppointment.php';
+require_once __DIR__ . '/../authentication/auth.php';
 
 class HospitalAppointmentController
 {
-    private $model;
+    private $db;
+    private $conn;
 
-    public function __construct($db)
+    public function __construct()
     {
-        $this->model = new HospiatlAppointment($db);
+        $this->db = new Database();
+        $this->conn = $this->db->getConnection();
     }
 
     public function bookAppointment()
     {
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $patient_id = $_POST['patient_id']; // Retrieve patient ID from session or input
-            $hospital_id = $_POST['hospital'];
-            $appointment_date = $_POST['appointment_date'];
-            $test_type = $_POST['test_type'];
-
-            $isBooked = $this->model->bookAppointment($patient_id, $hospital_id, $appointment_date, $test_type);
-
-            if ($isBooked) {
-                header("Location: ../views/requestAppointment.php?status=success");
-            } else {
-                header("Location: ../views/requestAppointment.php?status=error");
-            }
+        session_start();
+        if (!isset($_SESSION['user_id'])) {
+            exit();
         }
+
+        $patientId = $_SESSION['user_id'];
+        $hospitalId = intval($_POST['hospital_id']);
+        $testType = trim($_POST['test_type']);
+        $appointmentDate = date('Y-m-d', strtotime(trim($_POST['appointment_date'])));
+        
+
+        if ($this->validateInputs($hospitalId, $testType, $appointmentDate)) {
+            $appointmentModel = new HospitalAppointmentModel($this->conn);
+
+            if ($appointmentModel->bookAppointment($patientId, $hospitalId, $testType, $appointmentDate)) {
+                header('Location: ../views/requestAppointment.php?status=success');
+                exit();
+            } else {
+                header('Location: ../views/requestAppointment.php?status=error');
+                exit();
+            }
+        } else {
+            header('Location: ../views/requestAppointment.php?status=error');
+            exit();
+        }
+    }
+
+    private function validateInputs($hospitalId, $testType, $appointmentDate)
+    {
+        return !empty($hospitalId) && !empty($testType) && !empty($appointmentDate);
+    }
+
+    public function __destruct()
+    {
+        $this->db->closeConnection();
     }
 }
 
-// Assuming you have a database connection in $db
-$controller = new HospitalAppointmentController($db);
-$controller->bookAppointment();
-
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $controller = new HospitalAppointmentController();
+    if (isset($_POST['action']) && $_POST['action'] === 'book') {
+        $controller->bookAppointment();
+    } else {
+        echo "Invalid action";
+    }
+}

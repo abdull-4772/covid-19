@@ -17,29 +17,31 @@
                 <li><a href="patientDashboard.php">Dashboard</a></li>
                 <li><a href="./views/searchHospitals.php">Search Hospitals</a></li>
                 <li><a href="./views/requestAppointment.php">Request Appointment</a></li>
+                <li><a href="./views/requestTest_Vaccination.php">Request COVID-19 Test/Vaccination</a></li>
                 <li><a href="./views/viewReports.php">View Reports</a></li>
                 <li><a href="./views/myAppointments.php">My Appointments</a></li>
                 <li><a href="./views/manageProfile.php">My Profile</a></li>
                 <li><a href="./views/logout.php">Logout</a></li>
             </ul>
         </div>
-        <div class="content my-4">
-            <div class="row">
-                <div class="col-md-4 my-4">
+        <!-- style="width: 75vw; overflow-x: hidden;"  style="width: 130%;"-->
+        <div class="content my-4" >
+            <div class="row" >
+                <div class="col-md-3 my-4">
                     <div class="panel p-3 border rounded bg-light">
                         <h3>Upcoming Appointments</h3>
                         <p>3</p>
                         <button class="btn btn-purple"><a href="./views/myAppointments.php" class="text-white">View All</a></button>
                     </div>
                 </div>
-                <div class="col-md-4 my-4">
+                <div class="col-md-3 my-4">
                     <div class="panel p-3 border rounded bg-light">
                         <h3>Test Results Available</h3>
                         <p>2</p>
                         <button class="btn btn-purple"><a href="./views/viewReports.php" class="text-white">View All</a></button>
                     </div>
                 </div>
-                <div class="col-md-4 my-4">
+                <div class="col-md-3 my-4">
                     <div class="panel p-3 border rounded bg-light">
                         <h3>Vaccination Status</h3>
                         <p>1 Dose Pending</p>

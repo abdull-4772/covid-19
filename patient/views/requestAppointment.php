@@ -17,6 +17,7 @@
                 <li><a href="../patientDashboard.php">Dashboard</a></li>
                 <li><a href="./searchHospitals.php">Search Hospitals</a></li>
                 <li><a href="./requestAppointment.php">Request Appointment</a></li>
+                <li><a href="./requestTest_Vaccination.php">Request COVID-19 Test/Vaccination</a></li>
                 <li><a href="./viewReports.php">View Reports</a></li>
                 <li><a href="./myAppointments.php">My Appointments</a></li>
                 <li><a href="./manageProfile.php">My Profile</a></li>
@@ -33,14 +34,13 @@
             <?php endif; ?>
 
             <form action="../controllers/HospitalAppointmentController.php" method="post">
-                <!-- Assuming patient_id is passed via session -->
-                <input type="hidden" name="patient_id" value="<?php echo $_SESSION['patient_id']; ?>" />
+                <input type="hidden" name="action" value="book">    
+                <input type="hidden" name="patient_id" value="<?php echo $_SESSION['user_id']; ?>" />
 
                 <div class="form-group">
                     <label for="hospital">Select Hospital</label>
-                    <select class="form-control" id="hospital" name="hospital">
+                    <select class="form-control" id="hospital" name="hospital_id">
                         <?php
-                        // Populate the hospital dropdown from the database
                         require_once __DIR__ . '/../config/Database.php';
                         $db = new Database();
                         $conn = $db->getConnection();
@@ -69,6 +69,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Request Appointment</button>
             </form>
+
         </div>
     </div>
 </body>
