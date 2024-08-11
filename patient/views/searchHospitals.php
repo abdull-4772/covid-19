@@ -40,7 +40,7 @@
                         <li class="mb-2">
                             <div class="hospital-item">
                                 <strong><?= htmlspecialchars($hospital['name']) ?></strong> - <?= htmlspecialchars($hospital['address']) ?>
-                                <a href="./requestAppointment.php?hospital_id=<?= $hospital['id']; ?>" class="btn btn-secondary ml-3">Book Appointment</a>
+                                <a href="../views/requestAppointment.php?hospital_id=<?= $hospital['id']; ?>" class="btn btn-secondary ml-3">Book Appointment</a>
                             </div>
                         </li>
                     <?php endforeach; ?>
