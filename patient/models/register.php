@@ -42,29 +42,4 @@ class PatientRegisterModel
         }
         return false;
     }
-
-    // public function updateTestResult($patientId, $testResult)
-    // {
-    //     $query = "UPDATE patients SET covid_test_result = ? WHERE id = ?";
-    //     $stmt = $this->conn->prepare($query);
-    //     $stmt->bind_param("si", $testResult, $patientId);
-    //     return $stmt->execute();
-    // }
-
-    // public function updateVaccinationStatus($patientId, $status)
-    // {
-    //     $query = "UPDATE patients SET vaccination_status = ? WHERE id = ?";
-    //     $stmt = $this->conn->prepare($query);
-    //     $stmt->bind_param("si", $status, $patientId);
-    //     return $stmt->execute();
-    // }
-
-    // public function getPatientDetails($hospitalId)
-    // {
-    //     $query = "SELECT * FROM patients WHERE hospital_id = ?";
-    //     $stmt = $this->conn->prepare($query);
-    //     $stmt->bind_param("i", $hospitalId);
-    //     $stmt->execute();
-    //     return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-    // }
 }
