@@ -14,10 +14,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $userUpdate = new userController;
     $getUpdateResult = $userUpdate->update("patient", $id, $name, $email, $password, $age, $gender, $address, $phonenbr);
     if ($getUpdateResult == true) {
-        header("Location: ../users.php?status=edited");
+        header("Location: ../patient.php?status=edited");
     } else {
-        header("Location: ../users.php?status=notedited");
+        header("Location: ../patient.php?status=notedited");
     }
 } else {
-    header("Location: ../users.php");
+    header("Location: ../patient.php");
 }

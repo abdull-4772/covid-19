@@ -1,15 +1,3 @@
--- Hospital table data
-INSERT INTO `hospital`(`name`, `address`, `contact_number`, `email`, `password`, `created_at`) VALUES 
-('Greenwood Hospital', '123 Elm St', '+1234567890', 'contact@greenwoodhospital.com', 'password123', '2024-01-15'),
-('Lakeside Medical Center', '456 Lakeview Dr', '+1234567891', 'info@lakesidemedical.com', 'password234', '2024-02-20'),
-('Oakwood Clinic', '789 Oak St', '+1234567892', 'support@oakwoodclinic.com', 'password345', '2024-03-10'),
-('Sunnydale Hospital', '101 Main St', '+1234567893', 'hello@sunnydalehospital.com', 'password456', '2024-04-25'),
-('Riverbank Medical Facility', '202 River Rd', '+1234567894', 'contact@riverbankmedical.com', 'password567', '2024-05-30'),
-('Westfield Health Center', '303 Westfield Ave', '+1234567895', 'info@westfieldhealth.com', 'password678', '2024-06-15'),
-('Cedar Grove Hospital', '404 Cedar Dr', '+1234567896', 'support@cedargrovehospital.com', 'password789', '2024-07-10'),
-('Pine Hill Clinic', '505 Pine St', '+1234567897', 'hello@pinehillclinic.com', 'password890', '2024-08-05'),
-
-
 -- User table domi data 
 INSERT INTO `patient`(`name`, `email`, `password`, `age`, `gender`, `address`, `phone_number`, `created_at`) VALUES 
 ('Alice Johnson', 'alice.johnson@example.com', 'password123', 28, 'Female', '123 Maple St', '+1234567890', '2024-01-10'),
@@ -32,6 +20,26 @@ INSERT INTO `patient`(`name`, `email`, `password`, `age`, `gender`, `address`, `
 ('Rachel Lewis', 'rachel.lewis@example.com', 'password890', 32, 'Female', '1515 Cherry Blvd', '+1234567807', '2024-06-18'),
 ('Steve Robinson', 'steve.robinson@example.com', 'password901', 39, 'Male', '1616 Poplar St', '+1234567808', '2024-07-10'),
 ('Tina Carter', 'tina.carter@example.com', 'password012', 27, 'Female', '1717 Ash Ave', '+1234567809', '2024-08-22');
+
+-- Hospital table data
+INSERT INTO `hospital`(`name`, `address`, `contact_number`, `email`, `password`, `created_at`) VALUES 
+('Greenwood Hospital', '123 Elm St', '+1234567890', 'contact@greenwoodhospital.com', 'password123', '2024-01-15'),
+('Lakeside Medical Center', '456 Lakeview Dr', '+1234567891', 'info@lakesidemedical.com', 'password234', '2024-02-20'),
+('Oakwood Clinic', '789 Oak St', '+1234567892', 'support@oakwoodclinic.com', 'password345', '2024-03-10'),
+('Sunnydale Hospital', '101 Main St', '+1234567893', 'hello@sunnydalehospital.com', 'password456', '2024-04-25'),
+('Riverbank Medical Facility', '202 River Rd', '+1234567894', 'contact@riverbankmedical.com', 'password567', '2024-05-30'),
+('Westfield Health Center', '303 Westfield Ave', '+1234567895', 'info@westfieldhealth.com', 'password678', '2024-06-15'),
+('Cedar Grove Hospital', '404 Cedar Dr', '+1234567896', 'support@cedargrovehospital.com', 'password789', '2024-07-10'),
+('Pine Hill Clinic', '505 Pine St', '+1234567897', 'hello@pinehillclinic.com', 'password890', '2024-08-05');
+
+--  appointment table domi data 
+INSERT INTO appointment (patient_id, hospital_id, appointment_date, test_type, status) VALUES
+(1, 1, '2024-08-12', 'Blood Test', 'Pending'),
+(2, 2, '2024-08-13', 'X-Ray', 'Approved'),
+(3, 3, '2024-08-14', 'MRI', 'Rejected'),
+(4, 4, '2024-08-12', 'old Test', 'Pending'),
+(5, 5, '2024-08-12', 'new Test', 'Pending');
+
 
 -- test_results table domi data 
 INSERT INTO `test_results`(`user_id`, `hospital_id`, `result`, `result_date`) VALUES 

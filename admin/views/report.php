@@ -124,21 +124,19 @@
                     <tbody>
                         <?php
                         // Assuming $getData contains the report data
-                        require_once '../controllers/reportController.php';
-                        $reportController = new reportController;
+                        require_once '../controllers/hospitalController.php';
+                        $reportController = new hospitalController;
                         $getData = $reportController->getReportData();
 
-                        // Table body
-                        echo '<tbody>';
                         foreach ($getData as $row) {
-                            echo '<tr>';
-                            echo '<td>' . htmlspecialchars($row['id']) . '</td>';
-                            echo '<td>' . htmlspecialchars($row['p_name']) . '</td>';
-                            echo '<td>' . htmlspecialchars($row['h_name']) . '</td>';
-                            echo '<td>' . htmlspecialchars($row['vaccine_name']) . '</td>';
-                            echo '<td>' . htmlspecialchars($row['dose_number']) . '</td>';
-                            echo '<td>' . htmlspecialchars($row['created_at']) . '</td>';
-                            echo '</tr>';
+                            echo '<tr>
+                            <td>' . htmlspecialchars($row['id']) . '</td>
+                            <td>' . htmlspecialchars($row['p_name']) . '</td>
+                            <td>' . htmlspecialchars($row['h_name']) . '</td>
+                            <td>' . htmlspecialchars($row['vaccine_name']) . '</td>
+                            <td>' . htmlspecialchars($row['dose_number']) . '</td>
+                            <td>' . htmlspecialchars($row['created_at']) . '</td>
+                            </tr>';
                         }
                         ?>
                     </tbody>

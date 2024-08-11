@@ -54,7 +54,7 @@ require_once "../controllers/userController.php";
 
                 $id = $_GET['id'];
                 $userReadCont = new userController;
-                $getResult = $userReadCont->readOne("user", "$id");
+                $getResult = $userReadCont->readOne("patient", "$id");
                 $userId = "";
                 $userName = "";
                 if ($id !== "") {
@@ -65,10 +65,10 @@ require_once "../controllers/userController.php";
                 }
                 if ($id == $userId) {
                     echo "<script>
-                document.addEventListener('DOMContentLoaded', function() {
+                    document.addEventListener('DOMContentLoaded', function() {
                     confirmDelete();
-                });
-                </script>";
+                    });
+                    </script>";
                 }
             }
         }
@@ -77,12 +77,8 @@ require_once "../controllers/userController.php";
             <h2>Confirm Deletion</h2>
             <p>Are you sure you want to delete this user?</p>
             <form action="./delete/delete.php" method="POST">
-                <input type="text" name="id" value="<?php if ($userId != "") {
-                                                        echo $userId;
-                                                    } ?>" hidden>
-                <h1 style="text-decoration:underline;"><?php if ($userName != "") {
-                                                            echo $userName;
-                                                        } ?></h1>
+                <input type="text" name="id" value="<?php echo !empty($userId) ? $userId : ''; ?>" hidden>
+                <h1 style="text-decoration:underline;"><?php echo !empty($userName) ? $userName : ''; ?></h1>
                 <button type="button" class="btn cancelBtn" onclick="cancelFormSubmission(event)">Cancel</button>
                 <input type="submit" value="Confirm" class="btn confirmBtn">
             </form>
@@ -101,7 +97,6 @@ require_once "../controllers/userController.php";
                     <th>id</th>
                     <th>name</th>
                     <th>email</th>
-                    <!-- <th>password</th> <td>' . $row['password'] . '</td>-->
                     <th>age</th>
                     <th>gender</th>
                     <th>address</th>
@@ -128,7 +123,7 @@ require_once "../controllers/userController.php";
                         <td>
                             <a href="./edit/edit.php?id=' . $row['id'] . '" id="edit">Edit</a>
                             /
-                            <a href="./users.php?id=' . $row['id'] . '" id="delete" >Delete</a>
+                            <a href="./patient.php?id=' . $row['id'] . '" id="delete" >Delete</a>
                         </td>
                         </tr>';
                     }
@@ -145,8 +140,6 @@ require_once "../controllers/userController.php";
     <?php include_once "./partial/sidebarFoot.php"; ?>
 
     <script>
-      
-
         // Showing Alert Boxes
         let alertBackground = document.querySelector("#customAlertOverlay");
         let deletedAlertBox = document.querySelector("#deletedAlertBox");
@@ -182,7 +175,7 @@ require_once "../controllers/userController.php";
             deletedAlertBox.style.top = "40%";
             setTimeout(() => {
                 removeAlert(deletedAlertBox);
-            }, 2100);
+            }, 2000);
         }
 
         function showUpdatedAlert() {
@@ -191,7 +184,7 @@ require_once "../controllers/userController.php";
             updatedAlertBox.style.top = "40%";
             setTimeout(() => {
                 removeAlert(updatedAlertBox);
-            }, 2100);
+            }, 2000);
         }
 
         function removeAlert(alertBox) {

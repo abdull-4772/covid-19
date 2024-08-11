@@ -90,7 +90,22 @@ CREATE TABLE IF NOT EXISTS test_results (
     hospital_id INT,
     result ENUM('Positive', 'Negative', 'Pending') NOT NULL,
     result_date DATETIME,
+<<<<<<< HEAD
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+=======
+    FOREIGN KEY (patient_id) REFERENCES patient(id),
+    FOREIGN KEY (hospital_id) REFERENCES hospital(id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create "TESTS" table
+CREATE TABLE IF NOT EXISTS tests (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    patient_id INT,
+    hospital_id INT,
+    testdate DATE,
+    Result ENUM('Positive', 'Negative', 'Pending'),
+>>>>>>> 950789be867a543664bfe9ca352b0d0451caf8df
     FOREIGN KEY (patient_id) REFERENCES patient(id),
     FOREIGN KEY (hospital_id) REFERENCES hospital(id)
 );
@@ -120,8 +135,13 @@ CREATE TABLE IF NOT EXISTS hospital_approval (
 -- Indexes for optimization
 CREATE INDEX idx_patient_email ON patient(email);
 CREATE INDEX idx_hospital_email ON hospital(email);
+<<<<<<< HEAD
 CREATE INDEX idx_hospital_appointment_patient_id ON Hospital_appointment(patient_id);
 CREATE INDEX idx_hospital_appointment_hospital_id ON Hospital_appointment(hospital_id);
+=======
+CREATE INDEX idx_appointments_user_id ON appointment(patient_id);
+CREATE INDEX idx_appointments_hospital_id ON appointment(hospital_id);
+>>>>>>> 950789be867a543664bfe9ca352b0d0451caf8df
 CREATE INDEX idx_tests_patient_id ON tests(patient_id);
 CREATE INDEX idx_tests_hospital_id ON tests(hospital_id);
 

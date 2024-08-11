@@ -109,9 +109,9 @@
         require_once  "../../controllers/userController.php";
         $userId = $_GET['id'];
         $userReadCont = new userController;
-        $getResult = $userReadCont->readOne("user", "$userId");
+        $getResult = $userReadCont->readOne("patient", "$userId");
     } else {
-        header("Location: ./views/users.php");
+        header("Location: ./views/patient.php");
     }
 
     $id;
