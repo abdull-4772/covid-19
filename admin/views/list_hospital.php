@@ -14,7 +14,7 @@ require_once "../controllers/userController.php";
 
 <body>
     <?php include_once "./partial/sidebarHead.php"; ?>
-    <!-- Alerts box Start -->
+    <!--======================== Alerts box Start ========================-->
     <div id="customAlertOverlay" class="custom-overlay">
         <?php
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -44,16 +44,16 @@ require_once "../controllers/userController.php";
             <h2>Vaccine Updated</h2>
             <p>This Vaccine has been successfully updated.</p>
         </div>
-        <!-- Alerts Box end-->
+        <!--======================== Alerts Box end ========================-->
 
-        <!-- Delete a user Box start -->
+        <!--============================ Delete a user Box start ====================-->
         <?php
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             if (isset($_GET['id'])) {
 
                 $id = $_GET['id'];
                 $userReadCont = new userController;
-                $getResult = $userReadCont->readOne("listvaccine", "$id");
+                $getResult = $userReadCont->readOne("hospital", "$id");
                 $userId = "";
                 $userName = "";
                 if ($id !== "") {
@@ -64,10 +64,10 @@ require_once "../controllers/userController.php";
                 }
                 if ($id == $userId) {
                     echo "<script>
-                document.addEventListener('DOMContentLoaded', function() {
+                    document.addEventListener('DOMContentLoaded', function() {
                     confirmDelete();
-                });
-                </script>";
+                    });
+                    </script>";
                 }
             }
         }
@@ -86,9 +86,7 @@ require_once "../controllers/userController.php";
                 <input type="submit" value="Confirm" class="btn confirmBtn">
             </form>
         </div>
-
-
-        <!-- Delete a user Box end-->
+        <!--==================== Delete a user Box end ====================-->
     </div>
 
 
@@ -103,6 +101,7 @@ require_once "../controllers/userController.php";
                     <th>contact_number</th>
                     <th>email</th>
                     <th>created_at</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -121,14 +120,14 @@ require_once "../controllers/userController.php";
                         <td>
                             <a href="./edit/edit.php?id=' . $row['id'] . '" id="edit">Edit</a>
                             /
-                            <a href="./users.php?id=' . $row['id'] . '" id="delete" >Delete</a>
+                            <a href="./list_hospital.php?id=' . $row['id'] . '" id="delete" >Delete</a>
                         </td>
                         </tr>';
                     }
                 } else {
                     echo '<tr>
-                <td colspan="10"> User not found </td>
-                </tr>';
+                        <td colspan="10"> User not found </td>
+                        </tr>';
                 }
                 ?>
             </tbody>

@@ -2,15 +2,18 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient Details</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../public/css/custom-style.css">
+   
 </head>
 
 <body>
-    <div class="d-flex">
+
+    <div class="flex ">
         <div class="sidebar">
             <div class="h4 mb-4 px-3">Hospital Name</div>
             <ul class="list-unstyled">
@@ -22,27 +25,20 @@
                 <li><a href="./logout.php">Logout</a></li>
             </ul>
         </div>
-        <div class="content my-4">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Patient ID</th>
-                        <th>Name</th>
-                        <th>Reason </th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>John Doe</td>
-                        <td>Covid Test</td>
-                        <td>
-                            <a href="patientdetail.php"><button class="btn btn-purple">View Details</button></a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="profile-cont d-flex w-full">
+            <div class="content my-4  profile-info">
+                <h3>Patient Information</h3>
+                <p><strong>Patient Name:</strong> John Doe</p>
+                <p><strong>Age:</strong> 25</p>
+                <p><strong>Gender</strong> Male</p>
+                <p><strong>Address:</strong> 1234 Main St.</p>
+                <p><strong>Location:</strong> Cityville</p>
+                <p><strong>Contact Number:</strong> 123-456-7890</p>
+                <p><strong>Email:</strong> johndoe458@gmail.com</p>
+            </div>
         </div>
+    </div>
+    
 </body>
+
 </html>
