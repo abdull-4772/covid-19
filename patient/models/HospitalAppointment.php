@@ -11,7 +11,7 @@ class HospitalAppointmentModel
 
     public function bookAppointment($patient_id, $hospital_id, $test_type, $appointment_date)
     {
-        $query = "INSERT INTO Hospital_appointment (patient_id, hospital_id, test_type, appointment_date, status) VALUES (?, ?, ?, ?, 'Pending')";
+        $query = "INSERT INTO hospital_appointment (patient_id, hospital_id, test_type, appointment_date, status) VALUES (?, ?, ?, ?, 'Pending')";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("iiss", $patient_id, $hospital_id, $test_type, $appointment_date);
         

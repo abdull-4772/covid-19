@@ -30,7 +30,7 @@ class HospitalAppointmentController
         if ($this->validateInputs($hospitalId, $testType, $appointmentDate)) {
             $appointmentModel = new HospitalAppointmentModel($this->conn);
 
-            if ($appointmentModel->bookAppointment($patientId, $hospitalId, $appointmentDate, $testType)) {
+            if ($appointmentModel->bookAppointment($patientId, $hospitalId, $testType, $appointmentDate)) {
                 header('Location: ../views/requestAppointment.php?status=success');
                 exit();
             } else {

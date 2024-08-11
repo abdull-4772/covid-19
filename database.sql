@@ -41,13 +41,15 @@ CREATE TABLE IF NOT EXISTS Test_Vaccination_appointment (
     id INT AUTO_INCREMENT PRIMARY KEY,
     patient_id INT,
     hospital_id INT,
-    appointment_date DATETIME NOT NULL,
     reason VARCHAR(255) NOT NULL,
+    appointment_type ENUM('Covid_Test', 'Vaccination'),
     status ENUM('Pending', 'Approved', 'Rejected') DEFAULT 'Pending',
+    appointment_date DATETIME NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (patient_id) REFERENCES patient(id),
     FOREIGN KEY (hospital_id) REFERENCES hospital(id)
 );
+
 
 -- Create "HOSPITAL_APPOINTMENT" table
 CREATE TABLE IF NOT EXISTS Hospital_appointment (
@@ -108,17 +110,7 @@ CREATE TABLE IF NOT EXISTS tests (
 );
 
 -- Create "HOSPITAL_APPROVAL" table
-CREATE TABLE IF NOT EXISTS Hospital_appointment (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    patient_id INT,
-    hospital_id INT,
-    test_type ENUM('Consultation', 'Treatment', 'Other') NOT NULL,
-    appointment_date DATE NOT NULL,  
-    status ENUM('Pending', 'Approved', 'Rejected') DEFAULT 'Pending',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (patient_id) REFERENCES patient(id),
-    FOREIGN KEY (hospital_id) REFERENCES hospital(id)
-);  
+ 
 
 
 -- Indexes for optimization
