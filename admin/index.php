@@ -36,6 +36,25 @@
                                         }
                                         ?></p>
                 </div>
+
+                <div class="box">
+                    <h2>Total Hospitals</h2>
+                    <p id="totalHospitals"><?php
+                                            require_once './controllers/userController.php';
+                                            $report_con = new userController;
+                                            $all_report = $report_con->readAll("hospital");
+                                            $user_array = [];
+
+                                            while ($row = $all_report->fetch_assoc()) {
+                                                $user_array[] = $row['id'];
+                                            }
+                                            if (is_array($user_array)) {
+                                                echo count($user_array);
+                                            } else {
+                                                echo "0";
+                                            }
+                                            ?></p>
+                </div>
                 <div class="box">
                     <h2>Total Vaccine</h2>
                     <p id="totalPatients"><?php
@@ -57,40 +76,22 @@
                                             ?></p>
                 </div>
                 <div class="box">
-                    <h2>Total Hospitals</h2>
-                    <p id="totalHospitals"><?php
-                                            require_once './controllers/userController.php';
-                                            $report_con = new userController;
-                                            $all_report = $report_con->readAll("hospital");
-                                            $user_array = [];
-
-                                            while ($row = $all_report->fetch_assoc()) {
-                                                $user_array[] = $row['id'];
-                                            }
-                                            if (is_array($user_array)) {
-                                                echo count($user_array);
-                                            } else {
-                                                echo "0";
-                                            }
-                                            ?></p>
-                </div>
-                <div class="box">
                     <h2>Report Result</h2>
                     <p id="vaccineAvailability"><?php
-                                            require_once './controllers/userController.php';
-                                            $vaccine_con = new userController;
-                                            $all_vaccine = $vaccine_con->readAll("listvaccine");
-                                            $vaccine_array = [];
+                                                require_once './controllers/userController.php';
+                                                $vaccine_con = new userController;
+                                                $all_vaccine = $vaccine_con->readAll("listvaccine");
+                                                $vaccine_array = [];
 
-                                            while ($row = $all_vaccine->fetch_assoc()) {
-                                                $vaccine_array[] = $row['id'];
-                                            }
-                                            if (is_array($vaccine_array)) {
-                                                echo count($vaccine_array);
-                                            } else {
-                                                echo "0";
-                                            }
-                                            ?></p>
+                                                while ($row = $all_vaccine->fetch_assoc()) {
+                                                    $vaccine_array[] = $row['id'];
+                                                }
+                                                if (is_array($vaccine_array)) {
+                                                    echo count($vaccine_array);
+                                                } else {
+                                                    echo "0";
+                                                }
+                                                ?></p>
                 </div>
             </div>
             <!-- 
