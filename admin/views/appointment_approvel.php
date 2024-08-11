@@ -178,7 +178,7 @@
                                     <td>' . htmlspecialchars($row['id']) . '</td>
                                     <td>' . htmlspecialchars($row['p_name']) . '</td>
                                     <td>' . htmlspecialchars($row['h_name']) . '</td>
-                                    <td>' . htmlspecialchars($row['test_type']) . '</td>
+                                    <td>' . htmlspecialchars($row['reason']) . '</td>
                                     <td style="background-color:#FF9800; color:white;">' . htmlspecialchars($row['status']) . '</td>
                                     <td>' . htmlspecialchars($row['appointment_date']) . '</td>
                                     <td>
@@ -192,7 +192,7 @@
                                     <td>' . htmlspecialchars($row['id']) . '</td>
                                     <td>' . htmlspecialchars($row['p_name']) . '</td>
                                     <td>' . htmlspecialchars($row['h_name']) . '</td>
-                                    <td>' . htmlspecialchars($row['test_type']) . '</td>
+                                    <td>' . htmlspecialchars($row['reason']) . '</td>
                                     <td style="background-color:green; color:white;">' . htmlspecialchars($row['status']) . '</td>
                                     <td>' . htmlspecialchars($row['appointment_date']) . '</td>
                                     <td>
@@ -204,7 +204,7 @@
                                     <td>' . htmlspecialchars($row['id']) . '</td>
                                     <td>' . htmlspecialchars($row['p_name']) . '</td>
                                     <td>' . htmlspecialchars($row['h_name']) . '</td>
-                                    <td>' . htmlspecialchars($row['test_type']) . '</td>
+                                    <td>' . htmlspecialchars($row['reason']) . '</td>
                                     <td style="background-color:red; color:white;">' . htmlspecialchars($row['status']) . '</td>
                                     <td>' . htmlspecialchars($row['appointment_date']) . '</td>
                                     <td>

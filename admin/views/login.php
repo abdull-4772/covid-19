@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (isset($_SESSION['admin_user'])) {
+    header("Location: ../index.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -196,13 +202,22 @@
 </head>
 
 <body>
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        require_once '../controllers/adminController.php';
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $adminCon = new adminController;
+        $adminCon->login($username, $password);
+    }
+    ?>
     <div class="container">
         <div class="login-box">
             <h2>Login</h2>
-            <form action="../../controllers/patient.php" method="POST">
+            <form action="./login.php" method="POST">
                 <div class="user-box">
-                    <input type="email" name="email" required>
-                    <label>Email</label>
+                    <input type="email" name="username" required>
+                    <label>Username</label>
                 </div>
                 <div class="user-box">
                     <input type="password" name="password" required>

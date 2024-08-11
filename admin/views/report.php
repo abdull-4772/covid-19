@@ -107,9 +107,8 @@
                 <button class="covid-report-button" onclick="exportReport('month')">Export by Month</button>
             </section>
             <section class="covid-report-section">
-                <h3>Test Results</h3>
-                <p>Details of the test results.</p>
-
+                <h3>Report of COVID-19</h3>
+                <br>
                 <table>
                     <thead>
                         <tr>
@@ -123,7 +122,6 @@
                     </thead>
                     <tbody>
                         <?php
-                        // Assuming $getData contains the report data
                         require_once '../controllers/hospitalController.php';
                         $reportController = new hospitalController;
                         $getData = $reportController->getReportData();

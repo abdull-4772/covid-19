@@ -24,8 +24,9 @@
                 <li><a href="./views/logout.php">Logout</a></li>
             </ul>
         </div>
-        <div class="content my-4" style="width: 50vw;  overflow-x: hidden;">
-            <div class="row"  >
+        <!-- style="width: 75vw; overflow-x: hidden;"  style="width: 130%;"-->
+        <div class="content my-4" >
+            <div class="row" >
                 <div class="col-md-3 my-4">
                     <div class="panel p-3 border rounded bg-light">
                         <h3>Upcoming Appointments</h3>

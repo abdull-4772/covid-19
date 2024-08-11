@@ -40,7 +40,6 @@
                 <div class="box">
                     <h2>Total Hospitals</h2>
                     <p id="totalHospitals"><?php
-                                            require_once './controllers/userController.php';
                                             $report_con = new userController;
                                             $all_report = $report_con->readAll("hospital");
                                             $user_array = [];
@@ -58,10 +57,8 @@
                 <div class="box">
                     <h2>Total Vaccine</h2>
                     <p id="totalPatients"><?php
-                                            // require_once './controllers/userController.php';
-
                                             $user_con = new userController;
-                                            $all_users = $user_con->readAll("listvaccine");
+                                            $all_users = $user_con->readAll("list_of_vaccine");
                                             $user_array = [];
 
                                             while ($row = $all_users->fetch_assoc()) {
@@ -80,7 +77,7 @@
                     <p id="vaccineAvailability"><?php
                                                 require_once './controllers/userController.php';
                                                 $vaccine_con = new userController;
-                                                $all_vaccine = $vaccine_con->readAll("listvaccine");
+                                                $all_vaccine = $vaccine_con->readAll("report");
                                                 $vaccine_array = [];
 
                                                 while ($row = $all_vaccine->fetch_assoc()) {
@@ -94,48 +91,10 @@
                                                 ?></p>
                 </div>
             </div>
-            <!-- 
-        <div class="section">
-            <h2>All Patient Details</h2>
-        </div>
 
-        <div class="section">
-            <h2>View All Patient Profile Details</h2>
-        </div>
-
-        <div class="section">
-            <h2>Report of COVID-19</h2>
-        </div>
-
-        <div class="section">
-            <h2>Export Details</h2>
-            <button class="button">Export by Date</button>
-            <button class="button">Export by Week</button>
-            <button class="button">Export by Month</button>
-        </div>
-
-        <div class="section">
-            <h2>Approve Hospital Login</h2>
-        </div>
-
-        <div class="section">
-            <h2>List of Hospitals</h2>
-        </div>
-
-        <div class="section">
-            <h2>Booking Details</h2>
-        </div> -->
         </div>
     </div>
     <?php require_once './views/partial/sidebarFoot.php'; ?>
-
-    <script>
-        // Example script to dynamically update counts (you would replace these with actual data from your database)
-        // document.getElementById('totalUsers').innerText = 100; // Replace with actual total users count
-        // document.getElementById('totalPatients').innerText = 50; // Replace with actual total patients count
-        // document.getElementById('totalHospitals').innerText = 10; // Replace with actual total hospitals count
-        // document.getElementById('vaccineAvailability').innerText = 20; // Replace with actual vaccine availability count
-    </script>
 
 </body>
 

@@ -10,11 +10,7 @@ html{
   background-color: #fff;
   
 }
-.d-flex{
-  display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
+
 .sidebar {
   padding-right: 25px;
   height: 100vh;
