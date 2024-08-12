@@ -38,6 +38,16 @@ class userController
             return false;
         }
     }
+    function deletePatient($userId)
+    {
+        $UserCon = new userModel;
+        $user = $UserCon->deletePatient($userId);
+        if ($user == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     // you can UPDATE The "Single" User from this Method
     function update($tableName, $userId, $name, $email, $password, $age, $gender, $address, $phoneNbr)
@@ -50,4 +60,5 @@ class userController
             return false;
         }
     }
+
 }

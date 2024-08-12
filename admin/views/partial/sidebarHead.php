@@ -4,6 +4,7 @@ $dashboard = "";
 $patient = "";
 $report = "";
 $list_vaccine = "";
+$b_details = "";
 
 if ($current_page == 'index.php') {
     $dashboard = 'active';
@@ -17,6 +18,8 @@ if ($current_page == 'index.php') {
     $appointment_approvel = 'active';
 } elseif ($current_page == 'list_hospital.php') {
     $list_hospital = 'active';
+} elseif ($current_page == 'booking_details.php') {
+    $b_details = 'active';
 }
 ?>
 <div class="sidebar" id="sidebar">
@@ -31,7 +34,10 @@ if ($current_page == 'index.php') {
         <li><a class="<?php echo $report ?>" href="/covid-19/admin/views/report.php">Report</a></li>
         <li><a class="<?php echo $list_hospital ?>" href="/covid-19/admin/views/list_hospital.php">List of Hospital</a></li>
         <li><a class="<?php echo $list_vaccine ?>" href="/covid-19/admin/views/list_vaccine.php">List of Vaccine</a></li>
+        <li><a class="<?php echo $b_details ?>" href="/covid-19/admin/views/booking_details.php">Covid 19 Booking Details</a></li>
         <li><a href="/covid-19/admin/controllers/logout.php">Logout</a></li>
+        <li><a href="/covid-19/admin/views/login.php">Login</a></li>
+        <li><a href="/covid-19/admin/views/register.php">Register</a></li>
     </ul>
 </div>
 <div class="main-content">

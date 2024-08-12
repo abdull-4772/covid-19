@@ -35,6 +35,19 @@ class adminModel
         }
     }
 
+    function register($user, $pass)
+    {
+        $query = "INSERT INTO `admin`(`Username`, `Password`) VALUES ('$user', '$pass');";
+        $result = mysqli_query($this->conn, $query);
+
+
+        if ($result !== false) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     function __destruct()
     {
         $this->conn->close();

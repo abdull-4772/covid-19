@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['admin_user'])) {
-    header("Location: ./login.php");
+    header("Location: ./views/login.php");
     exit();
 }
 ?>
@@ -65,7 +65,7 @@ if (!isset($_SESSION['admin_user'])) {
                     <h2>Total Vaccine</h2>
                     <p id="totalPatients"><?php
                                             $user_con = new userController;
-                                            $all_users = $user_con->readAll("list_of_vaccine");
+                                            $all_users = $user_con->readAll("listVaccine");
                                             $user_array = [];
 
                                             while ($row = $all_users->fetch_assoc()) {

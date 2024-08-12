@@ -25,4 +25,25 @@ class adminController
             exit();
         }
     }
+
+    public function register($username, $password)
+    {
+        $user = trim($username);
+        $pass = trim($password);
+
+        if (!empty($user) && !empty($pass)) {
+            require_once '../models/adminModel.php';
+            $admin = new adminModel();
+            $check = $admin->register($user, $pass);
+            if ($check == true) {
+                session_start();
+                $_SESSION['admin_user'] = $user;
+                header("Location: ../index.php");
+                exit(); // Stop further execution after redirect
+            } else {
+                header("Location: ../views/register.php?status=failed");
+                exit();
+            }
+        }
+    }
 }

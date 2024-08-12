@@ -19,9 +19,11 @@ class hospitalController
     {
         $patientAppointment = new hospitalModel;
         $patientAppointment->updateAppointmentApprovel($id, $status);
-        // $getUpdate = 
-        // if ($getUpdate == true) {
-        //     header("Location: /covid-19/admin/views/appointment_approvel.php");
-        // }
+    }
+
+    function getTestResult()
+    {
+        $gettestResult = new hospitalModel;
+        return $gettestResult->getTestResult();
     }
 }
