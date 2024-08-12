@@ -4,7 +4,6 @@ require_once '../controllers/myAppointmentsController.php';
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +11,6 @@ require_once '../controllers/myAppointmentsController.php';
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../public/css/custom-style.css">
 </head>
-
 <body>
     <div class="d-flex">
         <div class="sidebar">
@@ -29,23 +27,25 @@ require_once '../controllers/myAppointmentsController.php';
             </ul>
         </div>
         <div class="content my-4">
-            <h2>My Appointments</h2>
-            <?php if (count($appointments) > 0): ?>
-                <table class="table table-bordered">
-                    <thead>
+            <h2>Hospital Appointments</h2>
+            <?php if (!empty($hospitalAppointments)): ?>
+                <table class="table table-bordered ">
+                    <thead  style="background: #6f42c1; color:#ffff;">
                         <tr>
                             <th>Appointment ID</th>
-                            <th>Hospital ID</th>
+                            <th>Patient Name</th>
+                            <th>Hospital Name</th>
                             <th>Type</th>
                             <th>Date</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($appointments as $appointment): ?>
+                        <?php foreach ($hospitalAppointments as $appointment): ?>
                             <tr>
                                 <td><?php echo $appointment['id']; ?></td>
-                                <td><?php echo $appointment['hospital_id']; ?></td>
+                                <td><?php echo $appointment['patient_name']; ?></td>
+                                <td><?php echo $appointment['hospital_name']; ?></td>
                                 <td><?php echo $appointment['type']; ?></td>
                                 <td><?php echo $appointment['appointment_date']; ?></td>
                                 <td><?php echo $appointment['status']; ?></td>
@@ -54,10 +54,39 @@ require_once '../controllers/myAppointmentsController.php';
                     </tbody>
                 </table>
             <?php else: ?>
-                <p>No appointments found.</p>
+                <p>No hospital appointments found.</p>
+            <?php endif; ?>
+
+            <h2>Test/Vaccination Appointments</h2>
+            <?php if (!empty($testVaccinationAppointments)): ?>
+                <table class="table table-bordered">
+                    <thead  style="background: #6f42c1; color:#ffff;">
+                        <tr>
+                            <th>Appointment ID</th>
+                            <th>Patient Name</th>
+                            <th>Hospital Name</th>
+                            <th>Type</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($testVaccinationAppointments as $appointment): ?>
+                            <tr>
+                                <td><?php echo $appointment['id']; ?></td>
+                                <td><?php echo $appointment['patient_name']; ?></td>
+                                <td><?php echo $appointment['hospital_name']; ?></td>
+                                <td><?php echo $appointment['type']; ?></td>
+                                <td><?php echo $appointment['appointment_date']; ?></td>
+                                <td><?php echo $appointment['status']; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            <?php else: ?>
+                <p>No test/vaccination appointments found.</p>
             <?php endif; ?>
         </div>
     </div>
 </body>
-
 </html>

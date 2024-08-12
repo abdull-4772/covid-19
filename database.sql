@@ -1,16 +1,6 @@
--- Create the database
 CREATE DATABASE IF NOT EXISTS covid_19;
 USE covid_19;
 
--- Create "ADMIN" table
-CREATE TABLE admin (
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Create "PATIENT" table
 CREATE TABLE IF NOT EXISTS patient (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -23,7 +13,13 @@ CREATE TABLE IF NOT EXISTS patient (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create "HOSPITAL" table
+CREATE TABLE IF NOT EXISTS Admin (
+    AdminID INT AUTO_INCREMENT PRIMARY KEY,
+    Username VARCHAR(50) NOT NULL UNIQUE,
+    Password VARCHAR(255) NOT NULL,
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 CREATE TABLE IF NOT EXISTS hospital (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -34,107 +30,90 @@ CREATE TABLE IF NOT EXISTS hospital (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create "TEST_VACCINATION_APPOINTMENT" table
 CREATE TABLE IF NOT EXISTS Test_Vaccination_appointment (
     id INT AUTO_INCREMENT PRIMARY KEY,
     patient_id INT,
     hospital_id INT,
+    test_type ENUM('Covid Test', 'Vaccination') NOT NULL,
     reason VARCHAR(255) NOT NULL,
-    appointment_type ENUM('Covid_Test', 'Vaccination'),
+    appointment_date DATE NOT NULL,
     status ENUM('Pending', 'Approved', 'Rejected') DEFAULT 'Pending',
-    appointment_date DATETIME NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (patient_id) REFERENCES patient(id),
-    FOREIGN KEY (hospital_id) REFERENCES hospital(id)
+    FOREIGN KEY (hospital_id) REFERENCES hospital(id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-
-
--- Create "HOSPITAL_APPOINTMENT" table
 CREATE TABLE IF NOT EXISTS Hospital_appointment (
     id INT AUTO_INCREMENT PRIMARY KEY,
     patient_id INT,
     hospital_id INT,
-    appointment_date DATE NOT NULL,
-    test_type ENUM('Consultation', 'Treatment', 'Other') NOT NULL,
+    test_type  ENUM('Consultation', 'Treatment', 'Other') NOT NULL,
+    appointment_date DATE NOT NULL, 
     status ENUM('Pending', 'Approved', 'Rejected') DEFAULT 'Pending',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (patient_id) REFERENCES patient(id),
-    FOREIGN KEY (hospital_id) REFERENCES hospital(id)
+    FOREIGN KEY (hospital_id) REFERENCES hospital(id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-
--- Create "LIST_OF_VACCINE" table
-CREATE TABLE IF NOT EXISTS List_of_Vaccine (
+CREATE TABLE IF NOT EXISTS listVaccine (
     id INT AUTO_INCREMENT PRIMARY KEY,
     vaccine_name VARCHAR(255),  
     dose_number ENUM('First', 'Second', 'Booster'),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create "REPORT" table
 CREATE TABLE IF NOT EXISTS report (
     id INT AUTO_INCREMENT PRIMARY KEY,
     patient_id INT,
     hospital_id INT,
     vaccine_id INT,
     status ENUM('Scheduled', 'Completed') DEFAULT 'Scheduled',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (patient_id) REFERENCES patient(id),
     FOREIGN KEY (hospital_id) REFERENCES hospital(id),
-    FOREIGN KEY (vaccine_id) REFERENCES List_of_Vaccine(id)
+    FOREIGN KEY (vaccine_id) REFERENCES listVaccine(id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create "TEST_RESULT" table
 CREATE TABLE IF NOT EXISTS test_results (
     id INT AUTO_INCREMENT PRIMARY KEY,
     patient_id INT,
     hospital_id INT,
     result ENUM('Positive', 'Negative', 'Pending') NOT NULL,
     result_date DATETIME,
-<<<<<<< HEAD
     FOREIGN KEY (patient_id) REFERENCES patient(id),
     FOREIGN KEY (hospital_id) REFERENCES hospital(id),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-=======
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (patient_id) REFERENCES patient(id),
-    FOREIGN KEY (hospital_id) REFERENCES hospital(id)
->>>>>>> f16a80e020768911b1d52fcb3b5d28663a5c1af3
 );
 
--- Create "TESTS" table
-CREATE TABLE IF NOT EXISTS tests (
+CREATE TABLE IF NOT EXISTS Tests (
     id INT AUTO_INCREMENT PRIMARY KEY,
     patient_id INT,
     hospital_id INT,
-<<<<<<< HEAD
     testdate DATE,
     Result ENUM('Positive', 'Negative', 'Pending'),
-=======
-    test_date DATE,
-    result ENUM('Positive', 'Negative', 'Pending'),
->>>>>>> f16a80e020768911b1d52fcb3b5d28663a5c1af3
     FOREIGN KEY (patient_id) REFERENCES patient(id),
     FOREIGN KEY (hospital_id) REFERENCES hospital(id)
 );
 
--- Create "HOSPITAL_APPROVAL" table
- 
+CREATE TABLE IF NOT EXISTS HospitalApproval (
+    ApprovalID INT AUTO_INCREMENT PRIMARY KEY,
+    HospitalID INT,
+    ApprovedBy INT,
+    ApprovedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Status ENUM('Approved', 'Rejected'),
+    FOREIGN KEY (HospitalID) REFERENCES hospital(id),
+    FOREIGN KEY (ApprovedBy) REFERENCES Admin(AdminID)
+);
 
-
--- Indexes for optimization
-CREATE INDEX idx_patient_email ON patient(email);
+-- Create indexes
+CREATE INDEX idx_user_email ON patient(email);
 CREATE INDEX idx_hospital_email ON hospital(email);
-<<<<<<< HEAD
-CREATE INDEX idx_appointments_user_id ON appointment(patient_id);
-CREATE INDEX idx_appointments_hospital_id ON appointment(hospital_id);
-=======
-CREATE INDEX idx_hospital_appointment_patient_id ON Hospital_appointment(patient_id);
-CREATE INDEX idx_hospital_appointment_hospital_id ON Hospital_appointment(hospital_id);
->>>>>>> f16a80e020768911b1d52fcb3b5d28663a5c1af3
-CREATE INDEX idx_tests_patient_id ON tests(patient_id);
-CREATE INDEX idx_tests_hospital_id ON tests(hospital_id);
+CREATE INDEX idx_test_vaccination_appointments_user_id ON Test_Vaccination_appointment(patient_id);
+CREATE INDEX idx_test_vaccination_appointments_hospital_id ON Test_Vaccination_appointment(hospital_id);
+CREATE INDEX idx_hospital_appointments_user_id ON Hospital_appointment(patient_id);
+CREATE INDEX idx_hospital_appointments_hospital_id ON Hospital_appointment(hospital_id);
+CREATE INDEX idx_tests_user_id ON Tests(patient_id);
+CREATE INDEX idx_tests_hospital_id ON Tests(hospital_id);
 
 -- Indexes on hospital name and address for faster search
 CREATE INDEX idx_hospital_name ON hospital(name);

@@ -1,28 +1,40 @@
 <?php
-require_once '../models/MyAppointmentModel.php';
-require_once '../authentication/auth.php';
+require_once __DIR__ . '/../config/Database.php';
+require_once __DIR__ . '/../models/MyAppointmentModel.php';
+require_once __DIR__ . '/../authentication/auth.php';
 
-class MyAppointmentsController {
+class MyAppointmentsController
+{
+    private $db;
+    private $conn;
     private $model;
 
-    public function __construct($conn) {
-        $this->model = new MyAppointmentsModel($conn);
+    public function __construct()
+    {
+        $this->db = new Database();
+        $this->conn = $this->db->getConnection();
+        $this->model = new MyAppointmentsModel($this->conn);
     }
 
-    public function getAppointments($patientId) {
-        return $this->model->getAppointmentsByPatientId($patientId);
+    public function getHospitalAppointments($patientId)
+    {
+        return $this->model->getHospitalAppointmentsByPatientId($patientId);
     }
-}
 
-$conn = mysqli_connect('localhost', 'root', '', 'covid_19');
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+    public function getTestVaccinationAppointments($patientId)
+    {
+        return $this->model->getTestVaccinationAppointmentsByPatientId($patientId);
+    }
+
+    public function __destruct()
+    {
+        $this->db->closeConnection();
+    }
 }
 
 
 $patientId = $_SESSION['user_id'];
-$controller = new MyAppointmentsController($conn);
-$appointments = $controller->getAppointments($patientId);
+$controller = new MyAppointmentsController();
 
-mysqli_close($conn);
-?>
+$hospitalAppointments = $controller->getHospitalAppointments($patientId);
+$testVaccinationAppointments = $controller->getTestVaccinationAppointments($patientId);

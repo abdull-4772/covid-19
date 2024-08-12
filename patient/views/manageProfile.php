@@ -37,10 +37,6 @@
                     <input type="text" class="form-control" id="address" name="address" value="Current Address" required>
                 </div>
                 <div class="form-group">
-                    <label for="location">Location</label>
-                    <input type="text" class="form-control" id="location" name="location" value="Current Location" required>
-                </div>
-                <div class="form-group">
                     <label for="phone">Phone</label>
                     <input type="text" class="form-control" id="phone" name="phone" value="Current Phone" required>
                 </div>

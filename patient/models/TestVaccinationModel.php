@@ -11,7 +11,7 @@ class TestVaccinationAppointmentModel
 
     public function bookAppointment($patientId, $hospitalId, $reason, $appointmentType, $appointmentDate)
     {
-        $query = "INSERT INTO Test_Vaccination_appointment (patient_id, hospital_id, reason, appointment_type, appointment_date) VALUES (?, ?, ?, ?, ?)";
+        $query = "INSERT INTO Test_Vaccination_appointment (patient_id, hospital_id, reason, test_type, appointment_date, status) VALUES (?, ?, ?, ?, ?, 'Pending')";
         $stmt = $this->conn->prepare($query);
     
         if ($stmt === false) {
