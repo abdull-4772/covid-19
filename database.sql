@@ -34,8 +34,8 @@ CREATE TABLE IF NOT EXISTS hospital (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create "APPOINTMENT" table
-CREATE TABLE IF NOT EXISTS appointment (
+-- Create "TEST_VACCINATION_APPOINTMENT" table
+CREATE TABLE IF NOT EXISTS Test_Vaccination_appointment (
     id INT AUTO_INCREMENT PRIMARY KEY,
     patient_id INT,
     hospital_id INT,
@@ -49,13 +49,14 @@ CREATE TABLE IF NOT EXISTS appointment (
 );
 
 
+
 -- Create "HOSPITAL_APPOINTMENT" table
 CREATE TABLE IF NOT EXISTS Hospital_appointment (
     id INT AUTO_INCREMENT PRIMARY KEY,
     patient_id INT,
     hospital_id INT,
-    appointment_date DATE NOT NULL,  -- Matches `appointment_date` format in the form
-    test_type ENUM('Consultation', 'Treatment', 'Other') NOT NULL,  -- Matches the `test_type` options in the form
+    appointment_date DATE NOT NULL,
+    test_type ENUM('Consultation', 'Treatment', 'Other') NOT NULL,
     status ENUM('Pending', 'Approved', 'Rejected') DEFAULT 'Pending',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (patient_id) REFERENCES patient(id),
