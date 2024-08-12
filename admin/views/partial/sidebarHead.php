@@ -31,7 +31,7 @@ if ($current_page == 'index.php') {
         <li><a class="<?php echo $report ?>" href="/covid-19/admin/views/report.php">Report</a></li>
         <li><a class="<?php echo $list_hospital ?>" href="/covid-19/admin/views/list_hospital.php">List of Hospital</a></li>
         <li><a class="<?php echo $list_vaccine ?>" href="/covid-19/admin/views/list_vaccine.php">List of Vaccine</a></li>
-        <li><a href="../../controllers/logout.php">Logout</a></li>
+        <li><a href="/covid-19/admin/controllers/logout.php">Logout</a></li>
     </ul>
 </div>
 <div class="main-content">
