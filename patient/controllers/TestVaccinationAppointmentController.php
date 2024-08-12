@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../config/Database.php';
-require_once __DIR__ . '/../models/TestVaccinationAppointmentModel.php';
+require_once __DIR__ . '/../models/TestVaccinationModel.php';
 require_once __DIR__ . '/../authentication/auth.php';
 
 class TestVaccinationAppointmentController
@@ -16,29 +16,24 @@ class TestVaccinationAppointmentController
 
     public function bookAppointment()
     {
-        session_start();
-        if (!isset($_SESSION['user_id'])) {
-            exit();
-        }
-
         $patientId = $_SESSION['user_id'];
         $hospitalId = intval($_POST['hospital_id']);
         $reason = trim($_POST['reason']);
         $appointmentType = trim($_POST['appointment_type']);
-        $appointmentDate = date('Y-m-d', strtotime(trim($_POST['appointment_date'])));
-        
+        $appointmentDate = trim($_POST['appointment_date']);
+
         if ($this->validateInputs($hospitalId, $reason, $appointmentType, $appointmentDate)) {
             $appointmentModel = new TestVaccinationAppointmentModel($this->conn);
 
             if ($appointmentModel->bookAppointment($patientId, $hospitalId, $reason, $appointmentType, $appointmentDate)) {
-                header('Location: ../views/requestCovidTestVaccination.php?status=success');
+                header('Location: ../views/requestTest_Vaccination.php?status=success');
                 exit();
             } else {
-                header('Location: ../views/requestCovidTestVaccination.php?status=error');
+                header('Location: ../views/requestTest_Vaccination.php?status=error');
                 exit();
             }
         } else {
-            header('Location: ../views/requestCovidTestVaccination.php?status=error');
+            header('Location: ../views/requestTest_Vaccination.php?status=error');
             exit();
         }
     }
@@ -62,4 +57,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Invalid action";
     }
 }
-?>

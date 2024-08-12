@@ -1,4 +1,4 @@
 <?php
 session_destroy();
-header("Location: ../views/patient/login.php");
+header("Location: http://localhost/covid-19/patient/views/login.php");
 exit;

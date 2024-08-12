@@ -27,7 +27,7 @@
         <div class="content my-4">
             <h2>Logout</h2>
             <p>You have been successfully logged out.</p>
-            <a href="registerLogin.php" class="btn btn-primary">Return to Login</a>
+            <a href="../controllers/logout.php" class="btn btn-primary">Return to Login</a>
         </div>
     </div>
 </body>

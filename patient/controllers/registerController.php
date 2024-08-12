@@ -56,11 +56,11 @@ class PatientRegistrationController
             if ($user) {
                 session_start();
                 $_SESSION['user_id'] = $user['id'];
-                $_SESSION['name'] = $user['name'];
-                header('Location: ..patietDashboard.php');
+                $_SESSION['email'] = $user['email'];
+                header('Location: http://localhost/covid-19/patient/patientDashboard.php');
                 exit;
             } else {
-                header('Location: ../views/patient/login.php?error=Invalid+credentials');
+                header('Location: ../views/login.php?error=Invalid+credentials');
                 exit;
             }
         } else {

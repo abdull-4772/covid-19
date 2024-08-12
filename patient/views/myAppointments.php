@@ -1,3 +1,7 @@
+<?php
+require_once '../controllers/myAppointmentsController.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,12 +30,32 @@
         </div>
         <div class="content my-4">
             <h2>My Appointments</h2>
-            <!-- List of appointments -->
-            <ul class="list-unstyled">
-                <li>Appointment 1 - Date - Hospital</li>
-                <li>Appointment 2 - Date - Hospital</li>
-                <li>Appointment 3 - Date - Hospital</li>
-            </ul>
+            <?php if (count($appointments) > 0): ?>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Appointment ID</th>
+                            <th>Hospital ID</th>
+                            <th>Type</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($appointments as $appointment): ?>
+                            <tr>
+                                <td><?php echo $appointment['id']; ?></td>
+                                <td><?php echo $appointment['hospital_id']; ?></td>
+                                <td><?php echo $appointment['type']; ?></td>
+                                <td><?php echo $appointment['appointment_date']; ?></td>
+                                <td><?php echo $appointment['status']; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            <?php else: ?>
+                <p>No appointments found.</p>
+            <?php endif; ?>
         </div>
     </div>
 </body>

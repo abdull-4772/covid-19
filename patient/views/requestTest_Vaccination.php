@@ -32,8 +32,8 @@
             <?php endif; ?>
 
             <form action="../controllers/TestVaccinationAppointmentController.php" method="post">
-                <input type="hidden" name="action" value="book">
-                <input type="hidden" name="patient_id" value="<?php echo $_SESSION['user_id']; ?>" />
+            <input type="hidden" name="action" value="book">    
+            <input type="hidden" name="patient_id" value="<?php echo $_SESSION['user_id']; ?>" />
 
                 <div class="form-group">
                     <label for="hospital">Select Hospital</label>
