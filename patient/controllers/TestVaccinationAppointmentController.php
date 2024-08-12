@@ -20,7 +20,7 @@ class TestVaccinationAppointmentController
         $hospitalId = intval($_POST['hospital_id']);
         $reason = trim($_POST['reason']);
         $appointmentType = trim($_POST['appointment_type']);
-        $appointmentDate = trim($_POST['appointment_date']);
+        $appointmentDate = date('Y-m-d', strtotime(trim($_POST['appointment_date'])));
 
         if ($this->validateInputs($hospitalId, $reason, $appointmentType, $appointmentDate)) {
             $appointmentModel = new TestVaccinationAppointmentModel($this->conn);
