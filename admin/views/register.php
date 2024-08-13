@@ -105,20 +105,20 @@ if (isset($_SESSION['admin_user'])) {
             $username = $_POST['username'];
             $password = $_POST['password'];
             $form = new adminController();
-            $form->login($username, $password);
+            $form->register($username, $password);
         }
     }
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        if (isset($_GET['status']) && $_GET['status'] === 'invaliduser') {
-            echo '<script>alert("Invalid username or password. Please try again.");</script>';
+        if (isset($_GET['status']) && $_GET['status'] === 'failed') {
+            echo '<script>alert("Registration failed. Please try again.");</script>';
         }
     }
     ?>
 
     <div class="container">
         <div class="login-box">
-            <h2>Admin Login</h2>
-            <form action="./login.php" method="POST">
+            <h2>Admin Register</h2>
+            <form action="./register.php" method="POST">
 
                 <div class="user-box">
                     <input type="text" name="username" required>
@@ -128,10 +128,10 @@ if (isset($_SESSION['admin_user'])) {
                     <input type="password" name="password" required>
                     <label>Password</label>
                 </div>
-                <button class="btn" type="submit">Login</button>
+                <button class="btn" type="submit">Register</button>
             </form>
             <br>
-            <small>Don't have an account? <a href="./register.php">Sign up now</a>.</small>
+            <small>If you already have an account, <a href="./login.php">please log in here</a>.</small>
         </div>
     </div>
 </body>

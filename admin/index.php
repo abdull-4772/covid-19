@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['admin_user'])) {
+    header("Location: ./views/login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,7 +65,7 @@
                     <h2>Total Vaccine</h2>
                     <p id="totalPatients"><?php
                                             $user_con = new userController;
-                                            $all_users = $user_con->readAll("list_of_vaccine");
+                                            $all_users = $user_con->readAll("listVaccine");
                                             $user_array = [];
 
                                             while ($row = $all_users->fetch_assoc()) {
