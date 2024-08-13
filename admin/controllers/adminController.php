@@ -7,7 +7,6 @@ class adminController
         $pass = trim($password);
 
         if (!empty($user) && !empty($pass)) {
-            // Prepare the SQL statement to prevent SQL injection
             require_once '../models/adminModel.php';
             $admin = new adminModel();
             $check = $admin->login($user, $pass);
@@ -15,8 +14,7 @@ class adminController
                 session_start();
                 $_SESSION['admin_user'] = $user;
                 header("Location: ../index.php");
-                exit(); // Stop further execution after redirect
-            } else {
+                exit(); 
                 header("Location: ../views/login.php?status=invaliduser");
                 exit();
             }
@@ -39,7 +37,7 @@ class adminController
                 session_start();
                 $_SESSION['admin_user'] = $user;
                 header("Location: ../index.php");
-                exit(); // Stop further execution after redirect
+                exit(); 
             } else {
                 header("Location: ../views/register.php?status=failed");
                 exit();
