@@ -14,24 +14,21 @@ class adminModel
 
     function login($user, $pass)
     {
-        $stmt = $this->conn->prepare("SELECT * FROM admin WHERE username = ? LIMIT 1");
-        $stmt->bind_param("s", $user);
-        $stmt->execute();
-        $result = $stmt->get_result();
+        $query = "SELECT * FROM admin WHERE Username = '$user' LIMIT 1";
+        $result = mysqli_query($this->conn, $query);
 
-        if ($result->num_rows === 1) {
-            $admin = $result->fetch_assoc();
+        if ($result && mysqli_num_rows($result) === 1) {
+            $admin = mysqli_fetch_assoc($result);
 
-            if ($pass === $admin['password']) {
-                $stmt->close();
+            if ($pass === $admin['Password']) {
                 return true;
             } else {
                 $stmt->close();
-                return false; 
+                return false; // Invalid credentials
             }
         } else {
             $stmt->close();
-            return false; 
+            return false; // No such user found
         }
     }
 
