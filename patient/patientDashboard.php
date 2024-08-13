@@ -24,7 +24,6 @@
                 <li><a href="./views/logout.php">Logout</a></li>
             </ul>
         </div>
-        <!-- style="width: 75vw; overflow-x: hidden;"  style="width: 130%;"-->
         <div class="content my-4" >
             <div class="row" >
                 <div class="col-md-3 my-4">

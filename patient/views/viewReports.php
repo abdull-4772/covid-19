@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../public/css/custom-style.css">
 </head>
-
 <body>
     <div class="d-flex">
         <div class="sidebar">
@@ -26,14 +24,28 @@
         </div>
         <div class="content my-4">
             <h2>View Reports</h2>
-            <!-- List of reports -->
+            <h4>COVID-19 Test Results</h4>
             <ul class="list-unstyled">
-                <li>Report 1 - Date</li>
-                <li>Report 2 - Date</li>
-                <li>Report 3 - Date</li>
+                <?php if (!empty($testResults)) {
+                    foreach ($testResults as $result) { ?>
+                        <li><?php echo $result['hospital_name']; ?> - <?php echo $result['result']; ?> - <?php echo date('d-m-Y', strtotime($result['result_date'])); ?></li>
+                    <?php }
+                } else { ?>
+                    <li>No test results found.</li>
+                <?php } ?>
+            </ul>
+
+            <h4>Vaccination Reports</h4>
+            <ul class="list-unstyled">
+                <?php if (!empty($vaccinationReports)) {
+                    foreach ($vaccinationReports as $report) { ?>
+                        <li><?php echo $report['hospital_name']; ?> - <?php echo $report['vaccine_name']; ?> - <?php echo $report['status']; ?></li>
+                    <?php }
+                } else { ?>
+                    <li>No vaccination reports found.</li>
+                <?php } ?>
             </ul>
         </div>
     </div>
 </body>
-
 </html>

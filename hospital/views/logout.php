@@ -51,7 +51,6 @@
             </ul>
         </div>
         <div class="content">
-            <!-- Main content goes here -->
         </div>
     </div>
 

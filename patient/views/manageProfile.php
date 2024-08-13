@@ -21,6 +21,7 @@ require_once __DIR__ . '/../controllers/MyProfileController.php';
                 <li><a href="../patientDashboard.php">Dashboard</a></li>
                 <li><a href="./searchHospitals.php">Search Hospitals</a></li>
                 <li><a href="./requestAppointment.php">Request Appointment</a></li>
+                <li><a href="./requestTest_Vaccination.php">Request COVID-19 Test/Vaccination</a></li>
                 <li><a href="./viewReports.php">View Reports</a></li>
                 <li><a href="./myAppointments.php">My Appointments</a></li>
                 <li><a href="./manageProfile.php">My Profile</a></li>

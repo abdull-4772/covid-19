@@ -105,7 +105,6 @@ CREATE TABLE IF NOT EXISTS HospitalApproval (
     FOREIGN KEY (ApprovedBy) REFERENCES Admin(AdminID)
 );
 
--- Create indexes
 CREATE INDEX idx_user_email ON patient(email);
 CREATE INDEX idx_hospital_email ON hospital(email);
 CREATE INDEX idx_test_vaccination_appointments_user_id ON Test_Vaccination_appointment(patient_id);
@@ -115,6 +114,5 @@ CREATE INDEX idx_hospital_appointments_hospital_id ON Hospital_appointment(hospi
 CREATE INDEX idx_tests_user_id ON Tests(patient_id);
 CREATE INDEX idx_tests_hospital_id ON Tests(hospital_id);
 
--- Indexes on hospital name and address for faster search
 CREATE INDEX idx_hospital_name ON hospital(name);
 CREATE INDEX idx_hospital_address ON hospital(address);
