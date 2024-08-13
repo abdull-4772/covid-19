@@ -14,7 +14,17 @@ class PatientRegisterModel
         $stmt = $this->conn->prepare($query);
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
         $stmt->bind_param("sssisss", $name, $email, $hashedPassword, $age, $gender, $address, $phone_number);
-        return $stmt->execute();
+
+        if ($stmt->execute()) {
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
+            $userId = $stmt->insert_id;
+            $_SESSION['user_id'] = $userId;
+            return true;
+        } else {
+            return false;
+        }
     }
 
 
