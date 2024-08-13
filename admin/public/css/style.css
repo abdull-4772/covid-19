@@ -20,7 +20,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #007bff;
+    background-color: #6f42c1;
     padding-top: 20px;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
@@ -35,7 +35,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #006bff;
+    background-color: #6f42c1;
     color: white;
 }
 
@@ -56,7 +56,7 @@ body {
 }
 .sidebar-menu li .active,
 .sidebar-menu li a:hover {
-    background-color: #006bff;
+    background-color: #6f42c1;
     border-radius: 4px;
 }
 
@@ -113,7 +113,7 @@ body {
 .main h1 {
     margin-bottom: 20px;
     text-align: center;
-    color: #007bff;
+    color: #6f42c1;
     font-size: 2em;
 }
 
@@ -130,7 +130,7 @@ td {
 }
 
 thead {
-    background: #007bff;
+    background: #6f42c1;
     color: white;
 }
 
@@ -157,14 +157,14 @@ a#delete {
 
 a#edit:hover,
 a#delete:hover {
-    color: #0b7dda;
+    color: #7c44a7;
 }
 
 .btn {
     display: inline-block;
     padding: 10px 20px;
     color: #fff;
-    background-color: #007bff;
+    background-color: #6f42c1;
     border: none;
     font-size: 16px;
     text-decoration: none;
@@ -176,7 +176,7 @@ a#delete:hover {
 }
 
 .btn:hover {
-    background-color: #005bff;
+    background-color: #6f42c1;
 }
 
 /* alert box */
@@ -215,7 +215,7 @@ a#delete:hover {
 }
 
 #updatedAlertBox h2 {
-    color: #007bff;
+    color: #6f42c1;
     margin-bottom: 20px;
 }
 
@@ -230,13 +230,13 @@ a#delete:hover {
 }
 
 #updatedAlertBox {
-    border-left: 5px solid #007bff;
-    border-right: 5px solid #007bff;
+    border-left: 5px solid #6f42c1;
+    border-right: 5px solid #6f42c1;
 }
 
 #deleteConfirmBox {
-    border-left: 5px solid #007bff;
-    border-right: 5px solid #007bff;
+    border-left: 5px solid #6f42c1;
+    border-right: 5px solid #6f42c1;
 }
 
 .cancelBtn {
@@ -288,7 +288,7 @@ h1 {
 }
 
 .box {
-    background: #007bff;
+    background: #6f42c1;
     color: white;
     padding: 20px;
     margin: 10px;
@@ -316,7 +316,7 @@ h1 {
 }
 
 .section h2 {
-    background: #007bff;
+    background: #6f42c1;
     color: white;
     padding: 10px;
     margin: 0 -20px 20px;
@@ -324,7 +324,7 @@ h1 {
 }
 
 .button {
-    background-color: #007bff;
+    background-color: #6f42c1;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -334,7 +334,7 @@ h1 {
 }
 
 .button:hover {
-    background-color: #0056b3;
+    background-color: #7d42a1;
 }
 
 /* dashboard end */

@@ -36,7 +36,7 @@ if (isset($_SESSION['admin_user'])) {
 
         .login-box h2 {
             margin-bottom: 30px;
-            color: #007bff;
+            color: #6f42c1;
             text-transform: uppercase;
         }
 
@@ -52,7 +52,7 @@ if (isset($_SESSION['admin_user'])) {
             color: #333;
             margin-bottom: 5px;
             border: none;
-            border-bottom: 1px solid #007bff;
+            border-bottom: 1px solid #6f42c1;
             outline: none;
             background: transparent;
         }
@@ -72,7 +72,7 @@ if (isset($_SESSION['admin_user'])) {
         .user-box input:valid~label {
             top: -20px;
             left: 0;
-            color: #007bff;
+            color: #6f42c1;
             font-size: 12px;
         }
 
@@ -80,7 +80,7 @@ if (isset($_SESSION['admin_user'])) {
             display: inline-block;
             padding: 10px 20px;
             color: #fff;
-            background-color: #007bff;
+            background-color: #6f42c1;
             border: none;
             font-size: 16px;
             text-decoration: none;
@@ -92,7 +92,7 @@ if (isset($_SESSION['admin_user'])) {
         }
 
         .btn:hover {
-            background-color: #005bff;
+            background-color: #6f42c1;
         }
     </style>
 </head>

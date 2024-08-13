@@ -24,7 +24,7 @@
         .covid-report-header {
             text-align: center;
             padding: 20px;
-            background-color: #007bff;
+            background-color: #6f42c1;
             color: white;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -49,8 +49,8 @@
 
         .covid-report-section h3 {
             font-size: 1.75em;
-            color: #007bff;
-            border-bottom: 2px solid #007bff;
+            color: #6f42c1;
+            border-bottom: 2px solid #6f42c1;
             padding-bottom: 10px;
         }
 
