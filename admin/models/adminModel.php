@@ -23,12 +23,10 @@ class adminModel
             if ($pass === $admin['Password']) {
                 return true;
             } else {
-                $stmt->close();
-                return false; // Invalid credentials
+                return false;
             }
         } else {
-            $stmt->close();
-            return false; // No such user found
+            return false;
         }
     }
 
@@ -50,5 +48,3 @@ class adminModel
         $this->conn->close();
     }
 }
-
-
